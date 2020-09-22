@@ -1,0 +1,17 @@
+name: "intro-to-r-for-clinicians"
+title: "CHOP R 101: Intro to R for Clinicians"
+description: |
+  CHOP R 101: Intro to R for Clinicians
+output_dir: "../docs"
+navbar:
+  logo: 
+    image: images/chopr.png
+    href: https://www.chop.edu/we-really-need-a-site
+  right:
+    - text: "Home"
+      href: index.html
+    - icon: fabb fa-github
+      href: https://github.com/skadauke/intro-to-r-for-clinicians-chop
+output: 
+  distill::distill_article:
+    toc: true
