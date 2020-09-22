@@ -69,7 +69,8 @@ Temporary Items
 .apdisk
 
 # Rendered notebooks
-*.html
+exercises/*.html
+solutions/*.html
 
 # MS Office
 *.tmp
