@@ -1,5 +1,5 @@
 ---
-title: "CHOP R 101: Intro to R for Clinicians"
+title: "CHOP R 101: Intro to R for Clinical Data"
 description: A gentle introduction to data science for healthcare professionals and clinical researchers.
 author:
   - name: Stephan Kadauke
@@ -10,22 +10,24 @@ site: distill::distill_website
 output_dir: docs
 ---
 
+<!-- Update site with rmarkdown::render_site("site/") -->
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Welcome!
 
-This is the website for the short course *Introduction to R for Clinicians* organized by the CHOP R User Group.
+This is the website for the short course *Introduction to R for Clinical Data* organized by the CHOP R User Group.
 
 You'll learn about [R Markdown](https://rmarkdown.rstudio.com/), a framework for reproducible data science, and how to perform essential data science tasks such as data import, visualization, transformation, and communication.
 
-For the best experience, I suggest the following (none of the below are absolutely necessary!):
+For the best experience during the workshop, I suggest the following (none of the below are absolutely necessary!):
 
-- If available to you, use two monitors (or another two-screen setup such as a laptop and a tablet or two laptops). 
-- To avoid issues caused by the overzealous CHOP firewall, you may want to connect from a personal (not work-issued) device using a non-work wireless network (i.e. `chopguest`). 
+- If available to you, use **two monitors** (or another two-screen setup such as a laptop and a tablet or two laptops). 
+- To avoid issues caused by the overzealous CHOP firewall, you may want to connect from a personal (not work-issued) device using a non-work wireless network (i.e. `chopguest`). If you are joining from your home network, you should be OK!
 - Please use a recent version of macOS or Windows.
-- We highly recommend you use the Google Chrome browser to access the RStudio Server training environment. 
+- We highly recommend you use the [Google Chrome](https://www.google.com/chrome/) browser to access the RStudio Server training environment. 
 
 The entire course will be recorded and made available to CHOP R User Group members for replay. To protect the privacy of participants, no breakouts, video feeds, or chats will be recorded. We also request that you refrain from recording or screen-grabbing any part of the course. 
 
@@ -33,15 +35,16 @@ The entire course will be recorded and made available to CHOP R User Group membe
 
 ### Essential
 
+- We will be utilizing Zoom for this workshop, please download and install the latest version [here](https://zoom.us/download).
 - Install the latest version of [Google Chrome](https://www.google.com/chrome/). 
-- Join the pre-course technology check session - details are in the pre-course email.
-- We want to provide a welcoming and supportive learning environment for everyone. To help us do so, please take a look at our [code of conduct](https://TODO). 
+- We want to provide a welcoming and supportive learning environment for everyone. To help us do so, please take a look at our [code of conduct](conduct.html). 
 
 ### Optional (but highly recommended)
 
+- We will have a pre-course technology check session where you will be able to test your connection to Zoom and logging into the RStudio Server training environment. If possible, please plan to attend!
 - To help us better understand our learners, please complete the [pre-course survey](https://TODO). We appreciate it!
 - Install [R](https://cloud.r-project.org/) and [RStudio Desktop](https://rstudio.com/products/rstudio/download/) on your computer. We made video with step by step instructions for installing these on macOS ([here](https://www.youtube.com/watch?v=GM88tYlEy_g)) or Windows ([here](https://www.youtube.com/watch?v=JRKmZK5-6aE)).
-- You may wish to download and/or print a copy of the course slides. PowerPoint slide decks are available [here](https://github.com/skadauke/intro-to-r-for-clinicians-chop/tree/master/slides).
+- You may wish to download and/or print a copy of the course slides. PowerPoint slide decks are available [here](https://github.com/skadauke/intro-to-r-for-clinicians-chop/tree/master/slides). 
 
 ## After the course
 

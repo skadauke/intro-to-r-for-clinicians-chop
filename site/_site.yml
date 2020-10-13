@@ -1,13 +1,15 @@
 name: "intro-to-r-for-clinicians"
-title: "CHOP R 101: Intro to R for Clinicians"
+title: "CHOP R 101: Intro to R for Clinical Data"
 description: |
-  CHOP R 101: Intro to R for Clinicians
+  CHOP R 101: Intro to R for Clinical Data
 output_dir: "../docs"
 navbar:
   logo: 
     image: images/chopr.png
     href: https://www.chop.edu/we-really-need-a-site
   right:
+    - text: "Code of Conduct"
+      href: conduct.html
     - text: "Home"
       href: index.html
     - icon: fabb fa-github

@@ -85,30 +85,26 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>CHOP R 101: Intro to R for Clinical Data</title>
-
-  <meta property="description" itemprop="description" content="A gentle introduction to data science for healthcare professionals and clinical researchers."/>
+  <title>CHOP R 101: Intro to R for Clinical Data: Code of Conduct</title>
 
 
-  <meta name="article:author" content="Stephan Kadauke"/>
+
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="CHOP R 101: Intro to R for Clinical Data"/>
+  <meta property="og:title" content="CHOP R 101: Intro to R for Clinical Data: Code of Conduct"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="A gentle introduction to data science for healthcare professionals and clinical researchers."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="CHOP R 101: Intro to R for Clinical Data"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="CHOP R 101: Intro to R for Clinical Data"/>
-  <meta property="twitter:description" content="A gentle introduction to data science for healthcare professionals and clinical researchers."/>
+  <meta property="twitter:title" content="CHOP R 101: Intro to R for Clinical Data: Code of Conduct"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","site","output_dir"]}},"value":[{"type":"character","attributes":{},"value":["CHOP R 101: Intro to R for Clinical Data"]},{"type":"character","attributes":{},"value":["A gentle introduction to data science for healthcare professionals and clinical researchers."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephan Kadauke"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/skadauke/"]},{"type":"character","attributes":{},"value":["Children's Hospital of Philadelphia"]},{"type":"character","attributes":{},"value":["https://www.chop.edu"]}]}]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["docs"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","output_dir"]}},"value":[{"type":"character","attributes":{},"value":["Code of Conduct"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["docs"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1768,7 +1764,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"CHOP R 101: Intro to R for Clinical Data","description":"A gentle introduction to data science for healthcare professionals and clinical researchers.","authors":[{"author":"Stephan Kadauke","authorURL":"https://www.linkedin.com/in/skadauke/","affiliation":"Children's Hospital of Philadelphia","affiliationURL":"https://www.chop.edu","orcidID":""}]}
+{"title":"Code of Conduct","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1796,89 +1792,44 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>CHOP R 101: Intro to R for Clinical Data</h1>
+<h1>Code of Conduct</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p>A gentle introduction to data science for healthcare professionals and clinical researchers.</p>
-</div>
-
-<div class="d-byline">
-  Stephan Kadauke <a href="https://www.linkedin.com/in/skadauke/" class="uri">https://www.linkedin.com/in/skadauke/</a> (Children’s Hospital of Philadelphia)<a href="https://www.chop.edu" class="uri">https://www.chop.edu</a>
-  
 
 </div>
+
 
 <div class="d-article">
 <div class="d-contents d-contents-float">
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#welcome">Welcome!</a></li>
-<li><a href="#pre-work">Pre-work</a>
-<ul>
-<li><a href="#essential">Essential</a></li>
-<li><a href="#optional-but-highly-recommended">Optional (but highly recommended)</a></li>
-</ul></li>
-<li><a href="#after-the-course">After the course</a></li>
-<li><a href="#resources">Resources</a></li>
-<li><a href="#acknowledgments">Acknowledgments</a></li>
+<li><a href="#expected-behavior">Expected Behavior</a></li>
+<li><a href="#unacceptable-behavior">Unacceptable Behavior</a></li>
+<li><a href="#consequences-of-unacceptable-behavior">Consequences of Unacceptable Behavior</a></li>
+<li><a href="#what-to-do-if-you-witness-or-are-subject-to-unacceptable-behavior">What To Do If You Witness or Are Subject To Unacceptable Behavior</a></li>
+<li><a href="#incident-response">Incident Response</a></li>
+<li><a href="#pre-event-concerns">Pre-Event Concerns</a></li>
 </ul>
 </nav>
 </div>
-<!-- Update site with rmarkdown::render_site("site/") -->
-<h2 id="welcome">Welcome!</h2>
-<p>This is the website for the short course <em>Introduction to R for Clinical Data</em> organized by the CHOP R User Group.</p>
-<p>You’ll learn about <a href="https://rmarkdown.rstudio.com/">R Markdown</a>, a framework for reproducible data science, and how to perform essential data science tasks such as data import, visualization, transformation, and communication.</p>
-<p>For the best experience during the workshop, I suggest the following (none of the below are absolutely necessary!):</p>
-<ul>
-<li>If available to you, use <strong>two monitors</strong> (or another two-screen setup such as a laptop and a tablet or two laptops).</li>
-<li>To avoid issues caused by the overzealous CHOP firewall, you may want to connect from a personal (not work-issued) device using a non-work wireless network (i.e. <code>chopguest</code>). If you are joining from your home network, you should be OK!</li>
-<li>Please use a recent version of macOS or Windows.</li>
-<li>We highly recommend you use the <a href="https://www.google.com/chrome/">Google Chrome</a> browser to access the RStudio Server training environment.</li>
-</ul>
-<p>The entire course will be recorded and made available to CHOP R User Group members for replay. To protect the privacy of participants, no breakouts, video feeds, or chats will be recorded. We also request that you refrain from recording or screen-grabbing any part of the course.</p>
-<h2 id="pre-work">Pre-work</h2>
-<h3 id="essential">Essential</h3>
-<ul>
-<li>We will be utilizing Zoom for this workshop, please download and install the latest version <a href="https://zoom.us/download">here</a>.</li>
-<li>Install the latest version of <a href="https://www.google.com/chrome/">Google Chrome</a>.</li>
-<li>We want to provide a welcoming and supportive learning environment for everyone. To help us do so, please take a look at our <a href="conduct.html">code of conduct</a>.</li>
-</ul>
-<h3 id="optional-but-highly-recommended">Optional (but highly recommended)</h3>
-<ul>
-<li>We will have a pre-course technology check session where you will be able to test your connection to Zoom and logging into the RStudio Server training environment. If possible, please plan to attend!</li>
-<li>To help us better understand our learners, please complete the <a href="https://TODO">pre-course survey</a>. We appreciate it!</li>
-<li>Install <a href="https://cloud.r-project.org/">R</a> and <a href="https://rstudio.com/products/rstudio/download/">RStudio Desktop</a> on your computer. We made video with step by step instructions for installing these on macOS (<a href="https://www.youtube.com/watch?v=GM88tYlEy_g">here</a>) or Windows (<a href="https://www.youtube.com/watch?v=JRKmZK5-6aE">here</a>).</li>
-<li>You may wish to download and/or print a copy of the course slides. PowerPoint slide decks are available <a href="https://github.com/skadauke/intro-to-r-for-clinicians-chop/tree/master/slides">here</a>.</li>
-</ul>
-<h2 id="after-the-course">After the course</h2>
-<p>If you would like to practice with the materials from the course, go to the <a href="https://github.com/skadauke/intro-to-r-for-clinicians-chop">GitHub repository</a>, and click the green button labeled “Code” to download the repository as a .ZIP file.</p>
-<p>To install all the packages we used in the training environment, open RStudio and run the following command in the Console:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
-  <span class='st'>"tidyverse"</span>,
-  <span class='st'>"rmarkdown"</span>,
-  <span class='st'>"shiny"</span>,
-  <span class='st'>"flexdashboard"</span>,
-  <span class='st'>"plotly"</span>,
-  <span class='st'>"DT"</span>
-<span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<h2 id="resources">Resources</h2>
-<ul>
-<li><a href="https://r4ds.had.co.nz/">R for Data Science</a> (by Hadley Wickham and Garrett Grolemund)
-<ul>
-<li><a href="https://jrnold.github.io/r4ds-exercise-solutions/">Solutions Manual</a> (by Jeffrey Arnold)</li>
-</ul></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> (by Yihui Xie, JJ Allaire, and Garrett Grolemund)</li>
-<li><a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualization</a> (by Claus Wilke)</li>
-<li><a href="https://rstudio.com/resources/cheatsheets/">RStudio Cheatsheets</a></li>
-</ul>
-<h2 class="appendix" id="acknowledgments">Acknowledgments</h2>
-<p>This course draws from various sources, most notably Garrett Grolemund’s <a href="https://github.com/rstudio-education/welcome-to-the-tidyverse">Welcome to the Tidyverse</a> and Greg Wilson’s <a href="http://teachtogether.tech/en/">Teaching Tech Together</a>. The section of the course discussing dashboards was initially developed by Patrick Mathias. Other sections were improved upon by Amrom Obstfeld and Joe Rudolf. This site uses the <a href="https://rstudio.github.io/distill/">distill</a> package.</p>
+<p>The CHOP R User Group is dedicated to providing a harassment-free experience for participants at all of our events, whether they are held in person or virtually. While at CHOP R User Group events or related ancillary or social events, any participants, including members, speakers, attendees, volunteers, and anyone else, should not engage in harassment in any form.</p>
+<p>This Code of Conduct may be revised by the CHOP R User Group at any time and the terms are non-negotiable. Your registration for or attendance at any CHOP R User Group event, whether it’s held in person or virtually, indicates your agreement to abide by this policy and its terms.</p>
+<h2 id="expected-behavior">Expected Behavior</h2>
+<p>All event participants, whether they are attending an in-person event or a virtual event, are expected to behave in accordance with professional standards, with both this Code of Conduct as well as their respective employer’s policies governing appropriate workplace behavior and applicable laws.</p>
+<h2 id="unacceptable-behavior">Unacceptable Behavior</h2>
+<p>Harassment will not be tolerated in any form, whether in person or virtually, including, but not limited to, harassment based on gender, gender identity and expression, sexual orientation, disability, physical appearance, body size, race, age, religion, or any other status protected by laws in which the event is being held. Harassment includes the use of abusive, offensive or degrading language, intimidation, stalking, harassing photography or recording, inappropriate physical contact, sexual imagery and unwelcome sexual advances or requests for sexual favors. Any report of harassment at one of our events, whether in person or virtual, will be addressed immediately. Participants asked to stop any harassing behavior are expected to comply immediately. Anyone who witnesses or is subjected to unacceptable behavior should notify a conference organizer at once.</p>
+<p>Speakers should not use sexual language, images, or any language or images that would constitute harassment as defined above in their talks.</p>
+<p>Individuals who participate (or plan to participate) in CHOP R User Group events, whether it’s an in-person event or a virtual event, should conduct themselves at all times in a manner that comports with both the letter and spirit of this policy prohibiting harassment and abusive behavior, whether before, during or after the event. This includes statements made in social media postings, online publications, text messages, and all other forms of electronic communication.</p>
+<h2 id="consequences-of-unacceptable-behavior">Consequences of Unacceptable Behavior</h2>
+<p>If a participant engages in harassing behavior, whether in person or virtually, the event organizers may take any action they deem appropriate depending on the circumstances, ranging from issuance of a warning to the offending individual to expulsion from the event. The CHOP R User Group reserves the right to exclude any participant found to be engaging in harassing behavior from participating in any further CHOP R User Group events.</p>
+<p>If a participant (or individual wishing to participate in a CHOP R User Group event, in-person and/or virtual), through postings on social media or other online publications or another form of electronic communication, engages in conduct that violates this policy, whether before, during or after an event, the CHOP R User Group may take appropriate corrective action, which could include imposing a temporary or permanent ban on an individual’s participation in future events.</p>
+<h2 id="what-to-do-if-you-witness-or-are-subject-to-unacceptable-behavior">What To Do If You Witness or Are Subject To Unacceptable Behavior</h2>
+<p>If you are being harassed, notice that someone else is being harassed, or have any other concerns relating to harassment, please contact the event organizer immediately.</p>
+<h2 id="incident-response">Incident Response</h2>
+<p>We pledge to respond to harassment reports quickly and thoroughly. As referenced above, if a participant engages in harassing behavior, whether in-person or virtually, the event organizers may take any action they deem appropriate, ranging from issuance of a warning to the offending individual to expulsion from the event, depending on the circumstances. The CHOP R User Group reserves the right to exclude any participant found to be engaging in harassing behavior from participating in any further events.</p>
+<h2 id="pre-event-concerns">Pre-Event Concerns</h2>
+<p>If you are planning to attend an upcoming event, whether in-person or virtually and have concerns regarding another individual who may be present, please contact the event organizer.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

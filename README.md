@@ -1,4 +1,4 @@
-This is the GitHub repository for the Intro to R for CHOP Clinicians course. There is a course website here: <https://skadauke.github.io/intro-to-r-for-clinicians-chop/>
+This is the GitHub repository for the Intro to R for Clinical Data course organized by the CHOP R User Group. There is a course website here: <https://skadauke.github.io/intro-to-r-for-clinicians-chop/>
 
 ## About the instructor
 
