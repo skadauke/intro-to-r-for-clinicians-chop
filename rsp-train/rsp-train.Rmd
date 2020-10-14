@@ -124,7 +124,7 @@ docker run \
     -e R_PACKAGES_GH=$R_PACKAGES_GH \
     -e RSP_LICENSE=$RSP_LICENSE \
     -v "$PWD/server-pro/conf/":/etc/rstudio \
-    -v "$PWD/users.txt":"/root/users.txt" \
+    -v "$PWD/users":"/root/users" \
     skadauke/rsp-train
 ```
 
@@ -133,7 +133,7 @@ Once the container is finished starting up, you can detach from it with `Ctrl-P`
 Type the following to get the list of usernames and passwords created for the training environment:
 
 ```{bash, eval = FALSE}
-cat 
+cat users/users.txt
 ```
 
 The `docker run` command, you will see a list of usernames and passwords, like so:
