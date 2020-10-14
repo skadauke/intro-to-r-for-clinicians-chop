@@ -92,3 +92,6 @@ Backup of *.doc*
 
 # Visio autosave temporary files
 *.~vsd*
+
+# User passwords
+rsp-train/users.txt

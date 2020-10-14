@@ -1,0 +1,160 @@
+---
+title: "RStudio Server Pro Training Environment"
+output: html_document
+---
+
+## Initial setup
+
+Install `doctl` to programmatically control the DigitalOcean API (using macOS `homebrew`):
+
+```{bash, eval = FALSE}
+brew install doctl
+```
+
+Log onto <https://www.digitalocean.com> and do the following:
+
+1. Generate a personal access token as described [here](https://www.digitalocean.com/docs/apis-clis/api/create-personal-access-token/#:~:text=To%20generate%20a%20personal%20access,the%20Generate%20New%20Token%20button.).
+2. Add your computer's SSH key as described [here](https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/).
+
+To store secrets and keys, we will use the `.Renviron` file. This file is not shared on GitHub. Edit this file by typing `usethis::edit_r_environ(scope = "project")` in the R command prompt. Add the following lines, filling in the missing values below.
+
+```
+DIGITALOCEAN_ACCESS_TOKEN=#########
+RSP_LICENSE=####-####-####-####-####-####
+PW_SEED=12345   # For reproducible password generation. Change or leave as is.
+```
+
+From your local computer's shell, run `doctl auth init` to authenticate your session to DigitalOcean. 
+
+```{bash, eval = FALSE}
+# Refresh environment variables
+source .Renviron # load DIGITALOCEAN_ACCESS_TOKEN
+export DIGITALOCEAN_ACCESS_TOKEN
+
+doctl auth init
+```
+
+To securely connect to your new DigitalOcean droplet from your computer, you need to tell it your computer's SSH key at the time the droplet is being created.  
+
+```{bash, eval = FALSE}
+doctl compute ssh-key list
+```
+
+Add the SSH key ID (first column of the output above) of your computer to the `.Renviron` file, like so:
+
+```
+SSH_KEY=########   # edit to match the ID from `doctl compute ssh-key list`
+```
+
+## Create a droplet with Docker preinstalled
+
+Create a DigitalOcean node ("droplet") with the following specifications:
+
+- Ubuntu 20.04 with Docker 19.03.12 pre-installed
+- Basic plan, 1 vCPU / 320 GB SSD / 1 GB RAM ($5/month)
+
+You can resize this VM later (see below). You may want to do this for the actual workshop (and also the pre-workshop tech check, if applicable).
+
+```{bash, eval=FALSE}
+# Refresh environment variables
+source .Renviron
+export SSH_KEY
+
+export SIZE_SLUG=s-1vcpu-1gb # Testing, $5/month
+#export SIZE_SLUG=s-6vcpu-16gb # Standard, $80/month
+#export SIZE_SLUG=s-8vcpu-32gb # Beefy, $160/month
+
+doctl compute droplet create rsp-train-chop \
+  --enable-monitoring \
+  --image docker-20-04 \
+  --region nyc1 \
+  --size $SIZE_SLUG \
+  --ssh-keys $SSH_KEY \
+  --wait
+```
+
+Copy and paste the Public IPv4 address of the newly created node into the `.Renviron` file, like so: 
+
+```
+RSP_TRAIN_CHOP_IP=XXX.XXX.XXX.XXX  # edit the IP address
+```
+
+Connect to droplet via SSH (type "yes" when asked "Are you sure you want to continue connecting?").
+
+```{bash, eval = FALSE}
+doctl compute ssh rsp-train-chop
+```
+
+Edit `/root/.bash_profile` using `vim` or another editor and copy/paste the following two lines from your local `.Renviron` file.
+
+```
+RSP_LICENSE=####-####-####-####-####-####
+PW_SEED=12345   # For reproducible password generation. Change or leave as is.
+```
+Install and run the docker container:
+
+```{bash, eval = FALSE}
+# Refresh environment variables
+source ~/.bash_profile
+export PW_SEED RSP_LICENSE
+
+# Configure the training environment
+export USER_PREFIX=chopr
+export N_USERS=50
+export GH_REPO=https://github.com/skadauke/intro-to-r-for-clinicians-chop
+export R_PACKAGES=shiny,flexdashboard,plotly,DT
+# export R_PACKAGES_GH=rstudio/DT
+
+# Configure firewall
+ufw allow 80
+ufw allow OpenSSH
+yes | ufw enable 
+
+# Spin up the docker container
+docker run \
+    --privileged -it \
+    --detach-keys "ctrl-p" \
+    --restart unless-stopped \
+    -p 80:8787 \
+    -e USER_PREFIX=chopr \
+    -e N_USERS=50 \
+    -e PW_SEED=$PW_SEED \
+    -e GH_REPO=$GH_REPO \
+    -e R_PACKAGES=$R_PACKAGES \
+    -e R_PACKAGES_GH=$R_PACKAGES_GH \
+    -e RSP_LICENSE=$RSP_LICENSE \
+    -v "$PWD/server-pro/conf/":/etc/rstudio \
+    -v "$PWD/users.txt":"/root/users.txt" \
+    skadauke/rsp-train
+```
+
+Once the container is finished starting up, you can detach from it with `Ctrl-P`.
+
+Type the following to get the list of usernames and passwords created for the training environment:
+
+```{bash, eval = FALSE}
+cat 
+```
+
+The `docker run` command, you will see a list of usernames and passwords, like so:
+
+```
+# Create user chopr001 with password 123456
+# Create user chopr002 with password 789012
+```
+
+You will want to copy this list and save it somewhere. This is the list of logins you will want to distribute to your workshop participants.
+
+The RStudio Server Pro will now be available by setting your browser to the public IP address
+
+## Resize
+
+
+
+## Teardown
+
+To shut down the droplet and destroy it, run the following:
+
+```{bash, eval = FALSE}
+doctl compute droplet delete rsp-train-chop --force
+```
