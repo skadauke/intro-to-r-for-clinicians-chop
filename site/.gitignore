@@ -42,3 +42,6 @@ vignettes/*.pdf
 
 # translation temp files
 po/*~
+
+# Usernames and passwords
+rsp-train/users.txt
