@@ -136,20 +136,44 @@ Type the following to get the list of usernames and passwords created for the tr
 cat users/users.txt
 ```
 
-The `docker run` command, you will see a list of usernames and passwords, like so:
-
-```
-# Create user chopr001 with password 123456
-# Create user chopr002 with password 789012
-```
-
 You will want to copy this list and save it somewhere. This is the list of logins you will want to distribute to your workshop participants.
 
-The RStudio Server Pro will now be available by setting your browser to the public IP address
+The RStudio Server Pro should now be available by setting your browser to the public IP address.
 
 ## Resize
 
+It's fine to have a cheap low-end node up before the workshop just to allow people to log in, you will want to have a beefier node for the actual workshop. You could destroy and rebuild the node, but that would mean that you'd get a change in IP. Fortunately, it's easy to resize a DigitalOcean node. This only takes a few minutes, is reversible, and can be done right before the workshop.
 
+The first step is the find the droplet ID:
+
+```{bash, eval = FALSE}
+doctl compute droplet list
+```
+
+In the following code, replace the `x` in `DROPLET_ID=x` with the ID for `rsp-train-chop` which is shown in the output from the previous command.
+
+```{bash, eval = FALSE}
+export DROPLET_ID=x  # enter ID from the output of the previous command
+```
+
+Now select the size of the new node you'd like to use by running the appropriate `export ...` command.
+
+```{bash, eval = FALSE}
+export NEW_SIZE_SLUG=s-1vcpu-1gb # Testing, $5/month
+#export NEW_SIZE_SLUG=s-6vcpu-16gb # Standard, $80/month
+#export NEW_SIZE_SLUG=s-8vcpu-32gb # Beefy, $160/month
+#export NEW_SIZE_SLUG=s-16vcpu-64gb # Max, $320/month, $.48/hour
+```
+
+The next commands shut down the droplet, resize it (without resizing the hard drive, which would make the action irreversible), and restart it.
+
+```{bash, eval = FALSE}
+doctl compute droplet-action shutdown $DROPLET_ID --wait
+doctl compute droplet-action resize $DROPLET_ID \
+    --size $NEW_SIZE_SLUG \
+    --wait
+doctl compute droplet-action power-on $DROPLET_ID --wait 
+```
 
 ## Teardown
 
