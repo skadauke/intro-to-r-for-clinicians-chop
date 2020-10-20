@@ -9,7 +9,6 @@ Run the following code chunk to import the COVID19 data.
 
 ```{r, warning = FALSE, message = FALSE}
 library(tidyverse)
-library(lubridate)
 
 covid_testing <- read_csv("covid_testing.csv") 
 ```

@@ -1,54 +1,45 @@
 ---
 title: "Transform Data"
+output: html_notebook
 ---
 
-## select()
+```{r, warning = FALSE, message = FALSE}
+library(tidyverse)
 
-```{r select}
-select(covid_testing, mrn, last_name)   # select columns to keep
+covid_testing <- read_csv("covid_testing.csv") 
 ```
 
 
-## filter()
+Create a dplyr pipeline that: 
+
+1. Starts with the *covid_testing* data frame, then
+
+2. Filters to tests that were sent from the PICU (Hint: `clinic_name` equal to "picu"), then
+
+3. Selects the column with the received-to-verified turnaround time (`rec_ver_tat`) as well as the column with the day from start of the pandemic (`pan_day`)
 
 ```{r}
-filter(covid_testing, mrn == 5000078)  # filter to specific rows
+______ %>% 
+  filter(______) %>% 
+  select(______, ______) 
 ```
 
-## %>%
+
+
+
+
+Add a column named "total_tat" to *covid_testing* that contains the total turnaround time (i.e. the sum of `col_rec_tat` and `rec_ver_tat`) for each test. 
 
 ```{r}
-covid_testing %>% 
-	filter(pan_day <= 10) %>% 
-	select(clinic_name)
+mutate(______, total_tat = ______)
 ```
 
 
-## mutate()
+
+
+
+Now re-write the previous code chunk to use the %>% operator.
 
 ```{r}
-covid_testing %>%
-	mutate(c_r_tat_mins = col_rec_tat*60)
-```
 
-
-## Your Turn 1
-
-Use select, filter and %>% in the following chunk to write a sequence of functions that: 
-
-1. Filters to tests from the clinic (`clinic_name`) of "picu"
-
-2. Selects the column with the received-to-verified turnaround time (`rec_ver_tat`) as well as the day from start of the pandemic (`pan_day`)
-
-```{r Your Turn}
-_________ %>% # name of data goes here
-  filter(_______) %>% 
-  select(________, ________) 
-```
-
-Use mutate with %>% to create a new column named "total_tat" containing the total turnaround time for each test (sum of `col_rec_tat` and `rec_ver_tat`).
-
-```{r}
-________ %>%
-	mutate(total_tat = ________)
 ```
