@@ -1,7 +1,7 @@
 ---
 title: "CHOP R 101"
 author: "R User Group + Arcus Ed"
-date: "12/02/2020"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-## Use this script!
+## Use this template!
 
 Coders often use templates and code snippets as a starting point for their analysis or find solutions to common problems.
 
@@ -32,7 +32,7 @@ This is your project! What problem are you trying to solve?
 
 This step usually requires a particular R library to bring in data, such as `readr`, which is happy grabbing data from a variety of sources.
 
-For example, we might want to bring in a .csv from a location online AND store it in a variable we can use:
+For example, we might want to bring in a .csv from a location online AND capture it in a named object so we can use it later:
 
 
 ```{r message=FALSE}
