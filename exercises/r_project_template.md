@@ -7,7 +7,14 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+# This is the "setup chunk" where you load in R packages to use in this R Markdown file
+# Note that "library(tidyverse)" actually brings in several different packages
+# such as dplyr, readr, ggplot2, etc! You can add additional "libary(package_name)"
+# lines to bring in additional functionality. More on this: https://www.tidyverse.org/packages/
+
 library(tidyverse)
+
 ```
 
 ## Use this template!
@@ -16,7 +23,7 @@ Coders often use templates and code snippets as a starting point for their analy
 
 Things we will commonly want to do in an RMarkdown:
 
-* Introduction: what are you trying to accomplish in this script?  
+* Introduction: what are you trying to accomplish in this script?
 * Import data: bring in relevant data from a .csv, from an API, etc.
 * Tidy and transform data
 * Exploratory cycle: summarize and visualize your data, check your assumptions
