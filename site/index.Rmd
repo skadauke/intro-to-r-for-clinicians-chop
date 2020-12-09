@@ -70,6 +70,9 @@ install.packages(c(
 - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) (by Yihui Xie, JJ Allaire, and Garrett Grolemund)
 - [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) (by Claus Wilke)
 - [RStudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
+  - [Data Import Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
+  - [Data Transformation Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+  - [Data Visualization Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
 
 ## Acknowledgments {.appendix}
 

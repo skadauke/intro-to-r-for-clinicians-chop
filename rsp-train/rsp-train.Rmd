@@ -100,7 +100,7 @@ export PW_SEED RSP_LICENSE
 
 # Configure the training environment
 export USER_PREFIX=chopr
-export N_USERS=50
+export N_USERS=100
 export GH_REPO=https://github.com/skadauke/intro-to-r-for-clinicians-chop
 export R_PACKAGES=shiny,flexdashboard,plotly,DT
 # export R_PACKAGES_GH=rstudio/DT
@@ -117,7 +117,7 @@ docker run \
     --restart unless-stopped \
     -p 80:8787 \
     -e USER_PREFIX=chopr \
-    -e N_USERS=50 \
+    -e N_USERS=$N_USERS \
     -e PW_SEED=$PW_SEED \
     -e GH_REPO=$GH_REPO \
     -e R_PACKAGES=$R_PACKAGES \
