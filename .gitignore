@@ -95,3 +95,6 @@ Backup of *.doc*
 
 # User passwords
 rsp-train/users.txt
+
+# Temporary files for course packs
+slides/*-coursepack*
