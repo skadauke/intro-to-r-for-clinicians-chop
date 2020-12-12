@@ -1751,7 +1751,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
   <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
   <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
@@ -1819,7 +1819,12 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#essential">Essential</a></li>
 <li><a href="#optional-but-highly-recommended">Optional (but highly recommended)</a></li>
 </ul></li>
-<li><a href="#after-the-course">After the course</a></li>
+<li><a href="#after-the-course">After the course</a>
+<ul>
+<li><a href="#watch-a-replay">Watch a replay!</a></li>
+<li><a href="#join-the-chop-r-user-group">Join the CHOP R User Group!</a></li>
+<li><a href="#do-a-mini-project-in-r">Do a Mini Project in R!</a></li>
+</ul></li>
 <li><a href="#resources">Resources</a></li>
 <li><a href="#acknowledgments">Acknowledgments</a></li>
 </ul>
@@ -1832,7 +1837,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <p>For the best experience during the workshop, I suggest the following (none of the below are absolutely necessary!):</p>
 <ul>
 <li>If available to you, use <strong>two monitors</strong> (or another two-screen setup such as a laptop and a tablet or two laptops).</li>
-<li>To avoid issues caused by the overzealous CHOP firewall, you may want to connect from a personal (not work-issued) device using a non-work wireless network (i.e. <code>chopguest</code>). If you are joining from your home network, you should be OK!</li>
+<li>To avoid issues caused by the CHOP firewall, you may want to connect from a personal (not work-issued) device using a non-work wireless network (i.e. <code>chopguest</code>). If you are joining from your home network, you should be OK!</li>
 <li>Please use a recent version of macOS or Windows.</li>
 <li>We highly recommend you use the <a href="https://www.google.com/chrome/">Google Chrome</a> browser to access the RStudio Server training environment.</li>
 </ul>
@@ -1848,12 +1853,19 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>We will have a pre-course technology check session where you will be able to test your connection to Zoom and logging into the RStudio Server training environment. If possible, please plan to attend!</li>
 <li>To help us better understand our learners, please complete the <a href="https://docs.google.com/forms/d/e/1FAIpQLSflqcTHed2o6VhuAFwlxUXHnN8ulIIjGxYbGm3dlZuHYsXZxQ/viewform">pre-course survey</a>. We appreciate it!</li>
+<li>You may wish to download and/or print a copy of the course slides. We provide two formats:
+<ul>
+<li><a href="https://github.com/skadauke/intro-to-r-for-clinicians-chop/raw/master/coursepack/chopr101.pdf">Printable course pack</a></li>
+<li><a href="https://github.com/skadauke/intro-to-r-for-clinicians-chop/tree/master/slides">PowerPoint slide decks</a></li>
+</ul></li>
 <li>Install <a href="https://cloud.r-project.org/">R</a> and <a href="https://rstudio.com/products/rstudio/download/">RStudio Desktop</a> on your computer. We made video with step by step instructions for installing these on macOS (<a href="https://www.youtube.com/watch?v=GM88tYlEy_g">here</a>) or Windows (<a href="https://www.youtube.com/watch?v=JRKmZK5-6aE">here</a>).</li>
-<li>You may wish to download and/or print a copy of the course slides. PowerPoint slide decks are available <a href="https://github.com/skadauke/intro-to-r-for-clinicians-chop/tree/master/slides">here</a>.</li>
 </ul>
 <h2 id="after-the-course">After the course</h2>
-<p>If you would like to practice with the materials from the course, go to the <a href="https://github.com/skadauke/intro-to-r-for-clinicians-chop">GitHub repository</a>, and click the green button labeled “Code” to download the repository as a .ZIP file.</p>
-<p>To install all the packages we used in the training environment, open RStudio and run the following command in the Console:</p>
+<h3 id="watch-a-replay">Watch a replay!</h3>
+<p>If you’d like a refresher, we suggest that you download the course materials to your computer and follow along with a <a href="https://www.youtube.com/watch?v=XCofS3gZ94o">replay of the workshop</a>.</p>
+<p>Make sure you have both R and RStudio installed (see above).</p>
+<p>To download the materials from the course, go to the <a href="https://github.com/skadauke/intro-to-r-for-clinicians-chop">GitHub repository</a>, and click the green button labeled “Code” to download the repository as a .ZIP file. Unzip that file. Inside of the folder that was created by unzipping the file, double click <code>intro-to-r-for-clinicians.Rproj</code> to open a new RStudio session. You should be able to see the <code>exercises</code> folder (among other things) in the <strong>Files</strong> pane.</p>
+<p>Now install all the packages we used in the training environment. To do so, run the following command in the <strong>Console</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre><code><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
@@ -1867,18 +1879,30 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 </code></pre>
 </div>
 </div>
+<h3 id="join-the-chop-r-user-group">Join the CHOP R User Group!</h3>
+<p>If you haven’t already done so, please consider joining the CHOP R User Group, which is open to anyone with a CHOP or Penn email address. <a href="http://bit.ly/chop-r">Click here to sign up</a>!</p>
+<p>We won’t spam you, we promise, but you’ll get invites to user group meetings (semi-regular, about once a month or so) about all sorts of R-related topics, plus an invite to the Slack channel, where you can chat with folks (and ask questions) about R.</p>
+<h3 id="do-a-mini-project-in-r">Do a Mini Project in R!</h3>
+<p>The only way to learn R is to spend time writing R code. We think a great way to do this is to solve a problem you encounter in your work reproducibly with a small R Markdown document. We came up with the idea of a Mini Project to help facilitate this process by helping you find an appropriate problem to solve, and providing you with lots of support via the CHOP R User group. If this sounds interesting to you, please <a href="https://forms.gle/cigDapSUvsqmaanGA">sign up for a Mini Project here</a>!</p>
 <h2 id="resources">Resources</h2>
 <ul>
 <li><a href="https://r4ds.had.co.nz/">R for Data Science</a> (by Hadley Wickham and Garrett Grolemund)
 <ul>
 <li><a href="https://jrnold.github.io/r4ds-exercise-solutions/">Solutions Manual</a> (by Jeffrey Arnold)</li>
 </ul></li>
+<li><a href="https://rstudio.cloud/learn/primers">RStudio Primers</a></li>
 <li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> (by Yihui Xie, JJ Allaire, and Garrett Grolemund)</li>
 <li><a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualization</a> (by Claus Wilke)</li>
-<li><a href="https://rstudio.com/resources/cheatsheets/">RStudio Cheatsheets</a></li>
+<li><a href="https://rstudio.com/resources/cheatsheets/">RStudio Cheatsheets</a>
+<ul>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf">Data Import Cheatsheet</a></li>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">Data Transformation Cheatsheet</a></li>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">Data Visualization Cheatsheet</a></li>
+</ul></li>
 </ul>
 <h2 class="appendix" id="acknowledgments">Acknowledgments</h2>
 <p>This course draws from various sources, most notably Garrett Grolemund’s <a href="https://github.com/rstudio-education/welcome-to-the-tidyverse">Welcome to the Tidyverse</a> and Greg Wilson’s <a href="http://teachtogether.tech/en/">Teaching Tech Together</a>. The section of the course discussing dashboards was initially developed by Patrick Mathias. Other sections were improved upon by Amrom Obstfeld and Joe Rudolf. This site uses the <a href="https://rstudio.github.io/distill/">distill</a> package.</p>
+<!-- Update site with rmarkdown::render_site("site/") -->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
