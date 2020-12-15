@@ -25,7 +25,7 @@ You'll learn about [R Markdown](https://rmarkdown.rstudio.com/), a framework for
 For the best experience during the workshop, I suggest the following (none of the below are absolutely necessary!):
 
 - If available to you, use **two monitors** (or another two-screen setup such as a laptop and a tablet or two laptops). 
-- To avoid issues caused by the overzealous CHOP firewall, you may want to connect from a personal (not work-issued) device using a non-work wireless network (i.e. `chopguest`). If you are joining from your home network, you should be OK!
+- To avoid issues caused by the CHOP firewall, you may want to connect from a personal (not work-issued) device using a non-work wireless network (i.e. `chopguest`). If you are joining from your home network, you should be OK!
 - Please use a recent version of macOS or Windows.
 - We highly recommend you use the [Google Chrome](https://www.google.com/chrome/) browser to access the RStudio Server training environment. 
 
@@ -43,14 +43,23 @@ The entire course will be recorded and made available to CHOP R User Group membe
 
 - We will have a pre-course technology check session where you will be able to test your connection to Zoom and logging into the RStudio Server training environment. If possible, please plan to attend!
 - To help us better understand our learners, please complete the [pre-course survey](https://docs.google.com/forms/d/e/1FAIpQLSflqcTHed2o6VhuAFwlxUXHnN8ulIIjGxYbGm3dlZuHYsXZxQ/viewform). We appreciate it!
+- You may wish to download and/or print a copy of the course slides. We provide two formats:
+  - [Printable PDF course pack](https://github.com/skadauke/intro-to-r-for-clinicians-chop/raw/master/coursepack/chopr101.pdf)
+  - [PowerPoint slide decks](https://github.com/skadauke/intro-to-r-for-clinicians-chop/tree/master/slides)
 - Install [R](https://cloud.r-project.org/) and [RStudio Desktop](https://rstudio.com/products/rstudio/download/) on your computer. We made video with step by step instructions for installing these on macOS ([here](https://www.youtube.com/watch?v=GM88tYlEy_g)) or Windows ([here](https://www.youtube.com/watch?v=JRKmZK5-6aE)).
-- You may wish to download and/or print a copy of the course slides. PowerPoint slide decks are available [here](https://github.com/skadauke/intro-to-r-for-clinicians-chop/tree/master/slides). 
+
 
 ## After the course
 
-If you would like to practice with the materials from the course, go to the [GitHub repository](https://github.com/skadauke/intro-to-r-for-clinicians-chop), and click the green button labeled "Code" to download the repository as a .ZIP file. 
+### Watch a replay!
 
-To install all the packages we used in the training environment, open RStudio and run the following command in the Console: 
+If you'd like a refresher, we suggest that you download the course materials to your computer and follow along with a [replay of the workshop](https://www.youtube.com/watch?v=XCofS3gZ94o).
+
+Make sure you have both R and RStudio installed (see above).
+
+To download the materials from the course, go to the [GitHub repository](https://github.com/skadauke/intro-to-r-for-clinicians-chop), and click the green button labeled "Code" to download the repository as a .ZIP file. Unzip that file. Inside of the folder that was created by unzipping the file, double click `intro-to-r-for-clinicians.Rproj` to open a new RStudio session. You should be able to see the `exercises` folder (among other things) in the **Files** pane.
+
+Now install all the packages we used in the training environment. To do so, run the following command in the **Console**: 
 
 ```{r, eval = FALSE, echo = TRUE}
 install.packages(c(
@@ -63,10 +72,21 @@ install.packages(c(
 ))
 ```
 
+### Join the CHOP R User Group!
+
+If you haven't already done so, please consider joining the CHOP R User Group, which is open to anyone with a CHOP or Penn email address. [Click here to sign up](http://bit.ly/chop-r)! 
+
+We won't spam you, we promise, but you'll get invites to user group meetings (semi-regular, about once a month or so) about all sorts of R-related topics, plus an invite to the Slack channel, where you can chat with folks (and ask questions) about R. 
+
+### Do a Mini Project in R!
+
+The only way to learn R is to spend time writing R code. We think a great way to do this is to solve a problem you encounter in your work reproducibly with a small R Markdown document. We came up with the idea of a Mini Project to help facilitate this process by helping you find an appropriate problem to solve, and providing you with lots of support via the CHOP R User group. If this sounds interesting to you, please [sign up for a Mini Project here](https://forms.gle/cigDapSUvsqmaanGA)!
+
 ## Resources
 
 - [R for Data Science](https://r4ds.had.co.nz/) (by Hadley Wickham and Garrett Grolemund)
   - [Solutions Manual](https://jrnold.github.io/r4ds-exercise-solutions/) (by Jeffrey Arnold)
+- [RStudio Primers](https://rstudio.cloud/learn/primers)
 - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) (by Yihui Xie, JJ Allaire, and Garrett Grolemund)
 - [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) (by Claus Wilke)
 - [RStudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
@@ -77,3 +97,5 @@ install.packages(c(
 ## Acknowledgments {.appendix}
 
 This course draws from various sources, most notably Garrett Grolemund's [Welcome to the Tidyverse](https://github.com/rstudio-education/welcome-to-the-tidyverse) and Greg Wilson's [Teaching Tech Together](http://teachtogether.tech/en/). The section of the course discussing dashboards was initially developed by Patrick Mathias. Other sections were improved upon by Amrom Obstfeld and Joe Rudolf. This site uses the [distill](https://rstudio.github.io/distill/) package.
+
+<!-- Update site with rmarkdown::render_site("site/") -->
