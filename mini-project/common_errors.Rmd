@@ -1,0 +1,101 @@
+---
+title: "Common Errors encountered by Beginner R Programmers"
+output: html_document
+---
+
+## Sometimes your error is just a warning!
+
+```{r}
+library(tidyverse)
+```
+
+
+## The big three errors
+
+```{r}
+summary(covid_testing)
+```
+
+Error! object 'x' not found: "You never told me about that object! Did you misspell it? Or forget to define it? Hint: check the Environment pane!"
+
+
+
+```{r}
+covid_testing <- read_excel("Covid_testing.xls")
+```
+
+Error! could not find function 'y': "I don't know this function. Maybe you forgot to load a package with library()?"
+
+
+
+```{r}
+library(readxl)
+covid_testing <- read_excel("covid.testing.xls")
+```
+
+Error! path does not exist: 'z': "I don't see this file. Maybe it's not in the right place, or maybe you misspelled it? Hint: check the Files pane!"
+
+
+
+## Can you predict the error?
+
+Read the following code and predict the error!
+
+```{r}
+library(readxl)
+covid_testing <- read_excel("covid_testing.xls")
+summary(Covid_testing)
+```
+
+
+Read the following code and predict the error!
+
+```{r}
+library(readxl)
+covid_testing <- read_excel("covid.testing.xls")
+summary(covid_testing)
+```
+
+
+
+## Can you spot the bug in the code? 
+
+Fix the bug in the following code!
+
+```{r}
+library(readxl)
+covid_testing <- read_excel("covid_testing.xls")
+summary("covid_testing")
+```
+
+
+
+Can you fix all bugs in the following code?
+
+```{r}
+library(readxl)
+covid_testing <- read_excel("covid_testing.xls")
+
+covid_testing %>%
+  select(mrn, first_name, last_name, result, pan_day) %>%
+  rename(pandemic_day = pan_day)
+  mutate(age_in_days == age * 365
+         age_in_seconds == age_in_days * 1440) %>%
+  
+```
+
+
+## Unexpected results when you edit R Markdown
+
+Why is there no green triangle for the following code chunk?
+
+``{r} 
+plot(mtcars)
+```
+
+
+Missing backticks can have weird side effects! 
+
+```{r}
+plot(pressure)
+```
