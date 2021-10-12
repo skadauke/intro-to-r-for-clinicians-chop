@@ -42,7 +42,7 @@ The entire course will be recorded and made available to CHOP R User Group membe
 ### Optional (but highly recommended)
 
 - We will have a pre-course technology check session where you will be able to test your connection to Zoom and logging into the RStudio Server training environment. If possible, please plan to attend!
-- To help us better understand our learners, please complete the [pre-course survey](https://docs.google.com/forms/d/e/1FAIpQLSflqcTHed2o6VhuAFwlxUXHnN8ulIIjGxYbGm3dlZuHYsXZxQ/viewform). We appreciate it!
+- To help us better understand our learners, please complete the [pre-course survey](https://redcap.link/r_for_clinical_data_pre). We appreciate it!
 - You may wish to download and/or print a copy of the course slides. We provide two formats:
   - [Printable PDF course pack](https://github.com/skadauke/intro-to-r-for-clinicians-chop/raw/master/coursepack/chopr101.pdf)
   - [PowerPoint slide decks](https://github.com/skadauke/intro-to-r-for-clinicians-chop/tree/master/slides)
@@ -74,13 +74,9 @@ install.packages(c(
 
 ### Join the CHOP R User Group!
 
-If you haven't already done so, please consider joining the CHOP R User Group, which is open to anyone with a CHOP or Penn email address. [Click here to sign up](http://bit.ly/chop-r)! 
+If you haven't already done so, please consider joining the CHOP R User Group, which is open to anyone with a CHOP or Penn email address. [Click here to sign up](http://bit.ly/chopRusers)! 
 
 We won't spam you, we promise, but you'll get invites to user group meetings (semi-regular, about once a month or so) about all sorts of R-related topics, plus an invite to the Slack channel, where you can chat with folks (and ask questions) about R. 
-
-### Do a Mini Project in R!
-
-The only way to learn R is to spend time writing R code. We think a great way to do this is to solve a problem you encounter in your work reproducibly with a small R Markdown document. We came up with the idea of a Mini Project to help facilitate this process by helping you find an appropriate problem to solve, and providing you with lots of support via the CHOP R User group. If this sounds interesting to you, please [sign up for a Mini Project here](https://forms.gle/cigDapSUvsqmaanGA)!
 
 ## Resources
 
