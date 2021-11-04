@@ -1,6 +1,6 @@
 # RStudio Server Pro Training Environment
 
-The setup we describe here consists of a VM (virtual machine) in AWS that hosts a containerized (Docker container) implementation of RStudio Server Pro.
+The setup we describe here consists of a VM (virtual machine) in AWS (Amazon Web Services) that hosts a containerized (Docker container) implementation of RStudio Server Pro.  In this document, you might see "VM", "instance", "server", or "machine", all of which refer to the same reality -- a virtual machine created in the EC2 service of AWS.
 
 The steps here walk you through obtaining and setting an appropriately sized VM, installing a Docker image, setting up the administrative parts of RStudio Server Pro (the license and users), and ensuring that users of your training instance can connect to your server which will hand off requests to the Docker container.  Much of the nitty-gritty is handled by scripts contained in this directory.
 
@@ -24,7 +24,6 @@ Create an EC2 instance with the Ubuntu 20.04 LTS AMI
 
 ![Screenshot of which Amazon Machine Image to choose](step_1.png)
 
-Select a machine size large enough for the expected load.
 
 ### Step 2: Choose Instance Type
 
@@ -72,7 +71,7 @@ Currently, your VM has an IP address that you can use to reach it, but this IP a
 
 To avoid the hassle of keeping track of the instance IP address every time you shut down and restart your server, you should choose to allocate an "Elastic IP" address (a small number come free with every AWS account).  Read [the AWS documentation](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-associate-static-public-ip/) for more details.
 
-To allocate an Elastic IP, find **Network & Security** > **Elastic IPs** in the navigation pane of your EC2 dashboard or go directly to [the "Allocate Elastic IP address" page](https://console.aws.amazon.com/ec2/v2/home#AllocateAddress) and click the button marked "Allocate Elastic IP Address".
+To allocate an Elastic IP, find the **Network & Security** section and **Elastic IPs** item below that in the navigation pane of your EC2 dashboard or go directly to [the "Allocate Elastic IP address" page](https://console.aws.amazon.com/ec2/v2/home#AllocateAddress). Click the button marked "Allocate Elastic IP Address".
 
 Choose from Amazon's pool of addresses and leave everything else as the default.  Then click "Allocate".
 
