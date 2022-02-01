@@ -6,6 +6,8 @@ The steps here walk you through obtaining and setting an appropriately sized VM,
 
 ## Part 1:  Obtain a VM on Amazon Web Services Elastic Compute Cloud (AWS EC2)
 
+In this step we presume you are a CHOP user with account privileges on AWS.  To log in to your CHOP AWS account, first go to https://myapplications.microsoft.com/ and then choose "AWS" (may be in a separate tab labeled "Apps").  Then go into the management console and begin work!
+
 Amazon's EC2 service allows you to create VMs, and that's what we'll use here.  At the time of writing, the EC2 instance (EC2 instance = VM) creation has several discrete steps listed at the top of the web pages AWS presents when instances are created:
 
 1. Choose AMI
@@ -20,7 +22,7 @@ We'll go through each of these steps.
 
 ### Step 1: Choose AMI
 
-Create an EC2 instance with the Ubuntu 20.04 LTS AMI
+Create an EC2 instance with the Ubuntu 20.04 LTS AMI.  You'll need to search for EC2 in the search box to get to the right page, unless it's in your recently accessed services.  Or try this link: https://console.aws.amazon.com/ec2/ and choose "Launch Instance" to get into the AMI picker.
 
 ![Screenshot of which Amazon Machine Image to choose](step_1.png)
 
@@ -59,7 +61,7 @@ If you're happy with what you've done so far you don't have to change anything i
 
 Key pairs are important, because you've said anyone can try to SSH in (log in to the server to administer it) from any IP address.  So that means you have to make sure that SSH is secured somehow, to prevent internet-scanning bots from realizing your server is fair game to install their cryptocurrency miners or other detrimental software.  You do this by generating a key pair.  The public key stays on the server, and you download the private key to a safe place.  Only people who use the private key (which you downloaded) can get into the server to run commands using SSH.
 
-You can name your key pair what you want, but later in the instructions we assume you named it rsp-train.  Make sure you download the private key and know where you downloaded it to!  The "Launch Instances" button here won't become active until you download your key file.
+You can name your key pair what you want, but later in the instructions we assume you named it `rsp-train`.  Make sure you download the private key and know where you downloaded it to!  The "Launch Instances" button here won't become active until you download your key file.
 
 ![Screenshot of key files](step_7.png)
 
@@ -83,15 +85,23 @@ Once the address is *allocated*, you want to *associate* it with your instance. 
 
 ![Screenshot of Elastic IP association](associate_elastic_ip.png)
 
-Once you've gotten your Elastic IP allocated and associated, keep track of it, because you're going to point your domain name to that IP address.  
+Once you've gotten your Elastic IP allocated and associated, keep track of it, because you're going to point your domain name to that IP address.
 
 ### Step 3: Set Up Domain
 
 You'll also want a domain name associated with your server, and, in order to use https:// instead of just http://, an SSL certificate.
 
+#### Historical Background...
+
+Joy purchased the domain name in 2021, but here's some details about how to purchase one:
+
 To create a domain name, consider domain registration using the [AWS Route 53 service](https://console.aws.amazon.com/route53/home#DomainRegistration).  It's not a requirement to do that here, as you can get domain names in many places, but it's nice to have everything together in AWS.  Domains cost anywhere from $9 and up, depending on what you choose.
 
     Note: register your domain early. It may take up to 3 days for the domain registration to be processed.
+
+Joy also had to transfer the domain from her personal AWS to her CHOP AWS.  She used the documentation here: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-between-aws-accounts.html
+
+#### OK, Back to the Present....
 
 Create a ["hosted zone" in Route 53](https://console.aws.amazon.com/route53/v2/hostedzones#) for your domain name. (If you just registered the domain name in Route 53, Route 53 will have created a hosted zone for you). Within the hosted zone, create a new DNS record (record type **A**) that points the host name to the IP of your EC2 instance -- the Elastic IP address you allocated and associated with your VM.
 
@@ -132,6 +142,8 @@ sudo ufw enable
 
 Install Nginx on the instance and configure reverse proxy with HTTPS redirect with a TLS/SSL certificate from [Letsencrypt](https://letsencrypt.org/).  
 
+In this and further chunks of command line entries, please do just one line at a time (not copy-paste blocks).  This will allow you to answer any questions along the way with Y (please, yes, do the thing).
+
 ```bash
 sudo apt install nginx
 sudo ufw allow 'Nginx Full'
@@ -161,7 +173,7 @@ Docker is a containerization solution that allows you to quickly deploy applicat
 
 ```bash
 sudo apt update
-sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
+sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release 
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
@@ -244,7 +256,7 @@ Below, substitute `<my_hostname>` with the domain name of your host.
 
 Type `sudo nano /etc/nginx/sites-available/default`.
 
-Inside the `/etc/nginx/sites-available/default` file, use your directional keys to navigate to and your keyboard to replace the following lines:
+Inside the `/etc/nginx/sites-available/default` file, use your directional keys to navigate to and your keyboard to replace the following lines, which will appear 2 times (once for **http** or port 80 traffic, in a block near the top, and once for **https** or port 443 traffic, in a block near the bottom).  If you don't replace both you will be frustrated as nginx won't forward inbound requests to the RStudio Docker container appropriately.
 
 ```conf
 location / {
@@ -259,13 +271,23 @@ With the following:
 ```conf
 location / {
     proxy_pass http://localhost:8787;
-    proxy_redirect http://localhost:8787/ $scheme://$http_host/;
     proxy_http_version 1.1;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection $connection_upgrade;
     proxy_read_timeout 20d;
 }
 ```
+
+Also change (only in the https section toward the bottom)
+```
+server_name _;
+```
+
+to
+
+```
+server_name <my_hostname>;
+```
+
+
 
 Save the updated file and exit using the keyboard commands shown in your screen for nano (Ctrl X and Enter, for example).
 
