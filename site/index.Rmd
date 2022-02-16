@@ -2,8 +2,8 @@
 title: "CHOP R 101: Intro to R for Clinical Data"
 description: A gentle introduction to data science for healthcare professionals and clinical researchers.
 author:
-  - name: Stephan Kadauke
-    url: https://www.linkedin.com/in/skadauke/
+  - name: Arcus Data Education
+    url: https://education.arcus.chop.edu/
     affiliation: Children's Hospital of Philadelphia
     affiliation_url: https://www.chop.edu
 site: distill::distill_website
@@ -22,30 +22,28 @@ This is the website for the short course *Introduction to R for Clinical Data* o
 
 You'll learn about [R Markdown](https://rmarkdown.rstudio.com/), a framework for reproducible data science, and how to perform essential data science tasks such as data import, visualization, transformation, and communication.
 
-For the best experience during the workshop, I suggest the following (none of the below are absolutely necessary!):
+For the best experience during the workshop, we suggest the following (none of the below are absolutely necessary!):
 
-- If available to you, use **two monitors** (or another two-screen setup such as a laptop and a tablet or two laptops). 
+- If available to you, use **two monitors** (or another two-screen setup such as a laptop and a tablet or two laptops).
 - To avoid issues caused by the CHOP firewall, you may want to connect from a personal (not work-issued) device using a non-work wireless network (i.e. `chopguest`). If you are joining from your home network, you should be OK!
 - Please use a recent version of macOS or Windows.
-- We highly recommend you use the [Google Chrome](https://www.google.com/chrome/) browser to access the RStudio Server training environment. 
+- We highly recommend you use the [Google Chrome](https://www.google.com/chrome/) browser to access the RStudio Server training environment.
 
-The entire course will be recorded and made available to CHOP R User Group members for replay. To protect the privacy of participants, no breakouts, video feeds, or chats will be recorded. We also request that you refrain from recording or screen-grabbing any part of the course. 
+The entire course will be recorded and made available to CHOP R User Group members for replay. To protect the privacy of participants, no breakouts, video feeds, or chats will be recorded. We also request that you refrain from recording or screen-grabbing any part of the course.
 
 ## Pre-work
 
 ### Essential
 
 - We will be utilizing Zoom for this workshop, please download and install the latest version [here](https://zoom.us/download).
-- Install the latest version of [Google Chrome](https://www.google.com/chrome/). 
-- We want to provide a welcoming and supportive learning environment for everyone. To help us do so, please take a look at our [code of conduct](conduct.html). 
+- Install the latest version of [Google Chrome](https://www.google.com/chrome/).
+- We want to provide a welcoming and supportive learning environment for everyone. To help us do so, please take a look at our [code of conduct](conduct.html).
 
 ### Optional (but highly recommended)
 
 - We will have a pre-course technology check session where you will be able to test your connection to Zoom and logging into the RStudio Server training environment. If possible, please plan to attend!
-- To help us better understand our learners, please complete the [pre-course survey](https://redcap.link/r_for_clinical_data_pre). We appreciate it!
-- You may wish to download and/or print a copy of the course slides. We provide two formats:
-  - [Printable PDF course pack](https://github.com/skadauke/intro-to-r-for-clinicians-chop/raw/master/coursepack/chopr101.pdf)
-  - [PowerPoint slide decks](https://github.com/skadauke/intro-to-r-for-clinicians-chop/tree/master/slides)
+- To help us better understand our learners, please complete the [pre-course survey](https://redcap.link/pre_r_for_clinical_data). We appreciate it!
+- You may wish to download and/or print a copy of the course slides. We will share links to these after the workshop.
 - Install [R](https://cloud.r-project.org/) and [RStudio Desktop](https://rstudio.com/products/rstudio/download/) on your computer. We made video with step by step instructions for installing these on macOS ([here](https://www.youtube.com/watch?v=GM88tYlEy_g)) or Windows ([here](https://www.youtube.com/watch?v=JRKmZK5-6aE)).
 
 
@@ -57,26 +55,22 @@ If you'd like a refresher, we suggest that you download the course materials to 
 
 Make sure you have both R and RStudio installed (see above).
 
-To download the materials from the course, go to the [GitHub repository](https://github.com/skadauke/intro-to-r-for-clinicians-chop), and click the green button labeled "Code" to download the repository as a .ZIP file. Unzip that file. Inside of the folder that was created by unzipping the file, double click `intro-to-r-for-clinicians.Rproj` to open a new RStudio session. You should be able to see the `exercises` folder (among other things) in the **Files** pane.
+To download the materials from the course, go to the [GitHub repository](https://github.com/arcus/intro-to-r-for-clinicians-chop), and click the green button labeled "Code" to download the repository as a .ZIP file. Unzip that file. Inside of the folder that was created by unzipping the file, double click `intro-to-r-for-clinicians.Rproj` to open a new RStudio session. You should be able to see the `exercises` folder (among other things) in the **Files** pane.
 
-Now install all the packages we used in the training environment. To do so, run the following command in the **Console**: 
+Now install all the packages we used in the training environment. To do so, run the following command in the **Console**:
 
 ```{r, eval = FALSE, echo = TRUE}
 install.packages(c(
   "tidyverse",
-  "rmarkdown",
-  "shiny",
-  "flexdashboard",
-  "plotly",
-  "DT"
+  "rmarkdown"
 ))
 ```
 
 ### Join the CHOP R User Group!
 
-If you haven't already done so, please consider joining the CHOP R User Group, which is open to anyone with a CHOP or Penn email address. [Click here to sign up](http://bit.ly/chopRusers)! 
+If you haven't already done so, please consider joining the CHOP R User Group, which is open to anyone with a CHOP or Penn email address. [Click here to sign up](http://bit.ly/chopRusers)!
 
-We won't spam you, we promise, but you'll get invites to user group meetings (semi-regular, about once a month or so) about all sorts of R-related topics, plus an invite to the Slack channel, where you can chat with folks (and ask questions) about R. 
+We won't spam you, we promise, but you'll get invites to user group meetings (semi-regular, about once a month or so) about all sorts of R-related topics, plus an invite to the Slack channel, where you can chat with folks (and ask questions) about R.
 
 ## Resources
 
@@ -92,6 +86,8 @@ We won't spam you, we promise, but you'll get invites to user group meetings (se
 
 ## Acknowledgments {.appendix}
 
-This course draws from various sources, most notably Garrett Grolemund's [Welcome to the Tidyverse](https://github.com/rstudio-education/welcome-to-the-tidyverse) and Greg Wilson's [Teaching Tech Together](http://teachtogether.tech/en/). The section of the course discussing dashboards was initially developed by Patrick Mathias. Other sections were improved upon by Amrom Obstfeld and Joe Rudolf. This site uses the [distill](https://rstudio.github.io/distill/) package.
+This course is based closely on material developed by [Stephan Kadauke](https://www.linkedin.com/in/skadauke/). You can see the materials for Stephan's original course, including recordings of the entire workshop, at his course website: [https://skadauke.github.io/intro-to-r-for-clinicians-chop/](https://skadauke.github.io/intro-to-r-for-clinicians-chop/). Thank you, Stephan, for developing such amazing materials and for sharing them under a [Creative Commons license](https://github.com/skadauke/intro-to-r-for-clinicians-chop/blob/master/LICENSE.txt)!
+
+This site is built using the [distill](https://rstudio.github.io/distill/) package.
 
 <!-- Update site with rmarkdown::render_site("site/") -->

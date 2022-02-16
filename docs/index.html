@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,7 +77,7 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -85,13 +85,14 @@ code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
+
   <!--radix_placeholder_meta_tags-->
   <title>CHOP R 101: Intro to R for Clinical Data</title>
 
   <meta property="description" itemprop="description" content="A gentle introduction to data science for healthcare professionals and clinical researchers."/>
 
 
-  <meta name="article:author" content="Stephan Kadauke"/>
+  <meta name="article:author" content="Arcus Data Education"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="CHOP R 101: Intro to R for Clinical Data"/>
@@ -109,7 +110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","site","output_dir"]}},"value":[{"type":"character","attributes":{},"value":["CHOP R 101: Intro to R for Clinical Data"]},{"type":"character","attributes":{},"value":["A gentle introduction to data science for healthcare professionals and clinical researchers."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephan Kadauke"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/skadauke/"]},{"type":"character","attributes":{},"value":["Children's Hospital of Philadelphia"]},{"type":"character","attributes":{},"value":["https://www.chop.edu"]}]}]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["docs"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","site","output_dir"]}},"value":[{"type":"character","attributes":{},"value":["CHOP R 101: Intro to R for Clinical Data"]},{"type":"character","attributes":{},"value":["A gentle introduction to data science for healthcare professionals and clinical researchers."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Arcus Data Education"]},{"type":"character","attributes":{},"value":["https://education.arcus.chop.edu/"]},{"type":"character","attributes":{},"value":["Children's Hospital of Philadelphia"]},{"type":"character","attributes":{},"value":["https://www.chop.edu"]}]}]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["docs"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -448,8 +449,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     top: 0;
   }
 
+  /* adjust viewport for navbar height */
+  /* helps vertically center bootstrap (non-distill) content */
+  .min-vh-100 {
+    min-height: calc(100vh - 100px) !important;
+  }
+
   </style>
 
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -557,19 +565,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
             var results = fuse.search(query, searchOptions);
             callback(results
               .map(function(result) { return result.item; })
-              .filter(function(item) { return !!item.description; })
             );
           },
           templates: {
             suggestion: function(suggestion) {
+              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
+                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
+                : '';
               var html = `
                 <div class="search-item">
                   <h3>${suggestion.title}</h3>
                   <div class="search-item-description">
-                    ${suggestion.description}
+                    ${suggestion.description || ''}
                   </div>
                   <div class="search-item-preview">
-                    <img src="${suggestion.preview ? offsetURL(suggestion.preview) : ''}"</img>
+                    ${img}
                   </div>
                 </div>
               `;
@@ -592,6 +602,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <style type="text/css">
+
+  .nav-search {
+    font-size: x-small;
+  }
 
   /* Algolioa Autocomplete */
 
@@ -667,6 +681,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }
 
   .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+    font-size: 1rem;
     margin-block-start: 0;
     margin-block-end: 5px;
   }
@@ -894,6 +909,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-decoration: underline;
   }
 
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
   @media(min-width: 768px) {
 
   d-article pre,
@@ -1048,6 +1068,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   div.hanging-indent{
     margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
   }
 
 
@@ -1715,7 +1746,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       var layout = $(this).attr('data-layout');
 
       // apply layout to markdown level block elements
-      var elements = $(this).children().not('div.sourceCode, pre, script');
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
       elements.each(function(i, el) {
         var layout_div = $('<div class="' + layout + '"></div>');
         if (layout_div.hasClass('shaded')) {
@@ -1830,6 +1861,23 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       // move appendix-bottom entries to the bottom
       $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
       $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
 
       // clear polling timer
       clearInterval(tid);
@@ -1990,8 +2038,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.9.7/header-attrs.js"></script>
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -2007,7 +2058,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"CHOP R 101: Intro to R for Clinical Data","description":"A gentle introduction to data science for healthcare professionals and clinical researchers.","authors":[{"author":"Stephan Kadauke","authorURL":"https://www.linkedin.com/in/skadauke/","affiliation":"Children's Hospital of Philadelphia","affiliationURL":"https://www.chop.edu","orcidID":""}]}
+{"title":"CHOP R 101: Intro to R for Clinical Data","description":"A gentle introduction to data science for healthcare professionals and clinical researchers.","authors":[{"author":"Arcus Data Education","authorURL":"https://education.arcus.chop.edu/","affiliation":"Children's Hospital of Philadelphia","affiliationURL":"https://www.chop.edu","orcidID":""}]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2042,7 +2093,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-byline">
-  Stephan Kadauke <a href="https://www.linkedin.com/in/skadauke/" class="uri">https://www.linkedin.com/in/skadauke/</a> (Children’s Hospital of Philadelphia)<a href="https://www.chop.edu" class="uri">https://www.chop.edu</a>
+  Arcus Data Education <a href="https://education.arcus.chop.edu/" class="uri">https://education.arcus.chop.edu/</a> (Children’s Hospital of Philadelphia)<a href="https://www.chop.edu" class="uri">https://www.chop.edu</a>
   
 
 </div>
@@ -2072,7 +2123,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h2 id="welcome">Welcome!</h2>
 <p>This is the website for the short course <em>Introduction to R for Clinical Data</em> organized by the CHOP R User Group.</p>
 <p>You’ll learn about <a href="https://rmarkdown.rstudio.com/">R Markdown</a>, a framework for reproducible data science, and how to perform essential data science tasks such as data import, visualization, transformation, and communication.</p>
-<p>For the best experience during the workshop, I suggest the following (none of the below are absolutely necessary!):</p>
+<p>For the best experience during the workshop, we suggest the following (none of the below are absolutely necessary!):</p>
 <ul>
 <li>If available to you, use <strong>two monitors</strong> (or another two-screen setup such as a laptop and a tablet or two laptops).</li>
 <li>To avoid issues caused by the CHOP firewall, you may want to connect from a personal (not work-issued) device using a non-work wireless network (i.e. <code>chopguest</code>). If you are joining from your home network, you should be OK!</li>
@@ -2090,29 +2141,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3 id="optional-but-highly-recommended">Optional (but highly recommended)</h3>
 <ul>
 <li>We will have a pre-course technology check session where you will be able to test your connection to Zoom and logging into the RStudio Server training environment. If possible, please plan to attend!</li>
-<li>To help us better understand our learners, please complete the <a href="https://redcap.link/r_for_clinical_data_pre">pre-course survey</a>. We appreciate it!</li>
-<li>You may wish to download and/or print a copy of the course slides. We provide two formats:
-<ul>
-<li><a href="https://github.com/skadauke/intro-to-r-for-clinicians-chop/raw/master/coursepack/chopr101.pdf">Printable PDF course pack</a></li>
-<li><a href="https://github.com/skadauke/intro-to-r-for-clinicians-chop/tree/master/slides">PowerPoint slide decks</a></li>
-</ul></li>
+<li>To help us better understand our learners, please complete the <a href="https://redcap.link/pre_r_for_clinical_data">pre-course survey</a>. We appreciate it!</li>
+<li>You may wish to download and/or print a copy of the course slides. We will share links to these after the workshop.</li>
 <li>Install <a href="https://cloud.r-project.org/">R</a> and <a href="https://rstudio.com/products/rstudio/download/">RStudio Desktop</a> on your computer. We made video with step by step instructions for installing these on macOS (<a href="https://www.youtube.com/watch?v=GM88tYlEy_g">here</a>) or Windows (<a href="https://www.youtube.com/watch?v=JRKmZK5-6aE">here</a>).</li>
 </ul>
 <h2 id="after-the-course">After the course</h2>
 <h3 id="watch-a-replay">Watch a replay!</h3>
 <p>If you’d like a refresher, we suggest that you download the course materials to your computer and follow along with a <a href="https://www.youtube.com/watch?v=XCofS3gZ94o">replay of the workshop</a>.</p>
 <p>Make sure you have both R and RStudio installed (see above).</p>
-<p>To download the materials from the course, go to the <a href="https://github.com/skadauke/intro-to-r-for-clinicians-chop">GitHub repository</a>, and click the green button labeled “Code” to download the repository as a .ZIP file. Unzip that file. Inside of the folder that was created by unzipping the file, double click <code>intro-to-r-for-clinicians.Rproj</code> to open a new RStudio session. You should be able to see the <code>exercises</code> folder (among other things) in the <strong>Files</strong> pane.</p>
+<p>To download the materials from the course, go to the <a href="https://github.com/arcus/intro-to-r-for-clinicians-chop">GitHub repository</a>, and click the green button labeled “Code” to download the repository as a .ZIP file. Unzip that file. Inside of the folder that was created by unzipping the file, double click <code>intro-to-r-for-clinicians.Rproj</code> to open a new RStudio session. You should be able to see the <code>exercises</code> folder (among other things) in the <strong>Files</strong> pane.</p>
 <p>Now install all the packages we used in the training environment. To do so, run the following command in the <strong>Console</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
   <span class='st'>"tidyverse"</span>,
-  <span class='st'>"rmarkdown"</span>,
-  <span class='st'>"shiny"</span>,
-  <span class='st'>"flexdashboard"</span>,
-  <span class='st'>"plotly"</span>,
-  <span class='st'>"DT"</span>
+  <span class='st'>"rmarkdown"</span>
 <span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2137,7 +2180,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul></li>
 </ul>
 <h2 class="appendix" id="acknowledgments">Acknowledgments</h2>
-<p>This course draws from various sources, most notably Garrett Grolemund’s <a href="https://github.com/rstudio-education/welcome-to-the-tidyverse">Welcome to the Tidyverse</a> and Greg Wilson’s <a href="http://teachtogether.tech/en/">Teaching Tech Together</a>. The section of the course discussing dashboards was initially developed by Patrick Mathias. Other sections were improved upon by Amrom Obstfeld and Joe Rudolf. This site uses the <a href="https://rstudio.github.io/distill/">distill</a> package.</p>
+<p>This course is based closely on material developed by <a href="https://www.linkedin.com/in/skadauke/">Stephan Kadauke</a>. You can see the materials for Stephan’s original course, including recordings of the entire workshop, at his course website: <a href="https://skadauke.github.io/intro-to-r-for-clinicians-chop/">https://skadauke.github.io/intro-to-r-for-clinicians-chop/</a>. Thank you, Stephan, for developing such amazing materials and for sharing them under a <a href="https://github.com/skadauke/intro-to-r-for-clinicians-chop/blob/master/LICENSE.txt">Creative Commons license</a>!</p>
+<p>This site is built using the <a href="https://rstudio.github.io/distill/">distill</a> package.</p>
 <!-- Update site with rmarkdown::render_site("site/") -->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
