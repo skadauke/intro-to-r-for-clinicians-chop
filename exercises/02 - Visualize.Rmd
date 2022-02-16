@@ -131,3 +131,66 @@ ggplot(data = covid_testing) +
   geom_freqpoly(mapping = aes(x = pan_day))
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+***************************************************************************************
+***************************************************************************************
+***************************************************************************************
+***************************************************************************************
+***************************************************************************************
+********************************                    ***********************************
+********************************     Stop here.     ***********************************
+********************************                    ***********************************
+***************************************************************************************
+***************************************************************************************
+***************************************************************************************
+***************************************************************************************
+***************************************************************************************
+
+
+
+
+
+
+### Small group activity
+
+How could we use what we've learned about ggplot2 to make the histogram from the previous exercises even better? We've talked about a few ways to change the way the data are displayed, but there are also lots of ways that the "non-data" components of your plot can be customized! 
+
+```{r}
+ggplot(data = covid_testing) +
+  geom_histogram(mapping = aes(x = pan_day, fill = result))
+```
+
+Our histogram could use a title, and the x and y labels could be more informative! To give our plot a title and new axis labels, we can use  `labs()`. 
+
+```{r}
+ggplot(data = covid_testing) +
+  geom_histogram(mapping = aes(x = pan_day, fill = result)) + 
+  labs(_______)
+```
+
+Using `theme()` can also help us change a lot about how the non-data components of our plot look, such as font size, whether the grid lines appear and if so how they appear, the way the legend looks, if there are tick marks on any of the axes... the potential customization options can appear endless! There are lots of arguments, and they're described here: https://ggplot2.tidyverse.org/reference/theme.html. For now, let's try to change the font size of the title and axis labels.
+
+
+```{r}
+
+
+```
+
+Now, what if we wanted to change the general "look" of of the non-data elements, like the background color and whether the grid lines are included, using a pre-defined theme? There are several of these to choose from, listed here: https://ggplot2.tidyverse.org/reference/ggtheme.html.
+
+```{r}
+
+
+```
+
+Are there any other changes we could make to improve this plot?
