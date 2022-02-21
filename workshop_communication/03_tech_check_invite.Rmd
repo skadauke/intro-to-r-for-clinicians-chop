@@ -1,0 +1,41 @@
+---
+title: "Tech Check Calendar Invite"
+output: html_document
+params:
+  workshop_date: "2022-02-17 09:00"
+  tech_check_date: "2022-02-16 13:00"
+  contact_person: "Rose Hartman"
+  contact_email: "hartmanr1@chop.edu"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(lubridate)
+source("communication_functions.r")
+
+workshop_date <- ymd_hm(params$workshop_date, tz = "EST")
+tech_check_date <- ymd_hm(params$tech_check_date, tz = "EST")
+```
+*You are receiving this calendar invite because you are registered for the Intro to R for Clinical Data workshop on `r format(workshop_date, '%A, %B %d')`. If you believe this is in error or if you are unable to attend the workshop, please let us know as soon as possible so we can give your spot to someone else on the waiting list!*
+
+Hello all,  
+ 
+Intro to R for Clinical Data is coming up soon, and we're looking forward to seeing you all there! You should have already received a calendar invite for the workshop itself, along with information about pre-work. If you haven't received the workshop information, please let us know!
+  
+ 
+On `r format(tech_check_date, '%A, %B %d')` `r print_time(tech_check_date, include_min=TRUE)`-`r print_time(tech_check_date + dminutes(30), include_min=TRUE)`, we will be holding a brief technology check-in to make sure that everyone is able to log into Zoom, the RStudio training environment, etc. 
+ 
+Though this event is optional, please plan to attend for at least a few minutes if possible. This will allow us to hit the ground running on `r format(workshop_date, '%a %m/%d')`. 
+ 
+The information to join the Zoom meeting is at the bottom of this email. 
+ 
+Please reach out with any questions you might have! 
+ 
+All the best, 
+
+`r params$contact_person`, on behalf of Arcus Education and the CHOP R User Group 
+
+**Zoom login information:** 
+
+

@@ -1,0 +1,59 @@
+---
+title: "Workshop Calendar Invite"
+output: html_document
+params:
+  workshop_date: "2022-02-17 09:00"
+  tech_check_date: "2022-02-16 13:00"
+  contact_person: "Rose Hartman"
+  contact_email: "hartmanr1@chop.edu"
+  signup_link: "https://redcap.link/feb2022_r_for_clinical_data"
+  pre_survey_link: "https://redcap.link/pre_r_for_clinical_data"
+  post_survey_link: "https://redcap.link/k1lyzn4e"
+  accounts_link: "www.example.com"
+  website_link: "https://arcus.github.io/intro-to-r-for-clinicians-chop/"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(lubridate)
+source("communication_functions.r")
+
+workshop_date <- ymd_hm(params$workshop_date, tz = "EST")
+tech_check_date <- ymd_hm(params$tech_check_date, tz = "EST")
+```
+*You are receiving this calendar invite because you are registered for the Intro to R for Clinical Data workshop on `r format(workshop_date, '%A, %B %d')`. If you believe this is in error or if you are unable to attend the workshop, please let us know as soon as possible so we can give your spot to someone else on the waiting list!*
+ 
+**Welcome to Intro to R for Clinical Data!**
+
+Hello, and thank you for enrolling in our workshop. Please hang on to this email! It has important info you will need on the day of the workshop. 
+ 
+Before the workshop: 
+
+-	Check out the [course website](`r params$website_link`) and complete the required pre-work. (Don’t worry, this won’t take much of your time!)
+
+-	Please take our [pre-course survey](`r params$pre_survey_link`) to allow us to better understand our users
+
+-	Optional: attend the pre-course technology check session on `r format(tech_check_date, '%A, %B %d')` `r print_time(tech_check_date, include_min=TRUE)` - `r print_time(tech_check_date + dminutes(30), include_min=TRUE)` (a separate invite will be sent for this session shortly)
+ 
+Day of the workshop: 
+
+- `r format(workshop_date, '%A, %B %d')` `r print_time(workshop_date)` - `r print_time(workshop_date + dhours(5))` with a 30-minute break for lunch
+
+- We will be using an RStudio server on the web. Click this link for your [username and password](`r params$accounts_link`).
+
+  *	Although the training environment is ephemeral and will not persist beyond the workshop session, please do not put any personal or sensitive information in your environment at any time
+  
+-	Zoom login info is at the bottom of this message
+
+-	Reminder: please have the latest versions of Google Chrome and Zoom downloaded and installed prior to the workshop.
+ 
+We look forward to seeing you! 
+ 
+Best,
+
+`r params$contact_person`, on behalf of Arcus Education and the CHOP R User Group
+
+**Zoom login information:** 
+
+

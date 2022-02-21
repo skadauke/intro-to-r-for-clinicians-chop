@@ -1,0 +1,59 @@
+---
+title: "Workshop Announcement"
+output: html_document
+params:
+  workshop_date: "2022-02-17 09:00"
+  contact_person: "Rose Hartman"
+  contact_email: "hartmanr1@chop.edu"
+  signup_link: "https://redcap.link/feb2022_r_for_clinical_data"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(lubridate)
+source("communication_functions.r")
+
+workshop_date <- ymd_hm(params$workshop_date, tz = "EST")
+```
+
+Hello all,
+ 
+Exciting news: It's time for another "**Intro to R for Clinical Data**" workshop!
+ 
+On `r format(workshop_date, '%A, %B %d')` from `r print_time(workshop_date)` - `r print_time(workshop_date + dhours(5))`, Arcus Education will be hosting our gentle introduction to data science for healthcare professionals (e.g. MDs, RNs, NPs, data managers, clinical researchers) and others who interact with clinical data. This course is geared towards beginners who are comfortable with Excel but have no programming background. 
+ 
+The workshop will cover why and how to get started using the R statistical programming language in your work. We'll talk about how to import data, transform data, and create lovely data visualizations in R, all while setting you up with best practices for creating reproducible reports. 
+ 
+To sign up for this exciting workshop, please visit `r params$signup_link`. This workshop is limited to 40 participants with a CHOP email address, so please be sure to sign up soon if you are interested in attending. If you sign up but find that you are no longer able to attend, please let us know so we can extend your spot to someone else. 
+
+Note that this will be a repeat of workshops we've offered previously. If you've already attended this workshop in the past and you're looking for ways to take the next steps in your R journey, consider joining in as a workshop TA! See FAQs below.  
+ 
+All the best,
+
+`r params$contact_person`, on behalf of Arcus Education and the CHOP R User Group Steering Committee
+
+**Intro to R Workshop TAs: Frequently Asked Questions**
+
+**Why might I want to be a workshop TA?**
+If you've had some beginner level exposure to R (such as attending an Intro to R workshop in the past) it can be hard to find ways to practice your new skills and consolidate your learning. Helping out with a workshop is a fantastic way to get exposure to the workshop content again, but with a new level of appreciation since you'll be thinking about things from a new perspective. 
+You also get increased visibility in the CHOPR community, which can launch new networking opportunities for you and possibly connect you to projects you wouldn't otherwise have found. If you've been mostly "lurking" in CHOPR so far, this is a great way to up your engagement. And TAing an Intro to R workshop is good experience to have --- put it on your resume, impress your manager! 
+Last but definitely not least, if you've found the CHOPR community useful so far in your R journey, helping at a workshop is a wonderful way to give back. Thank you for considering it.
+
+**What do workshop TAs do?**
+The primary role of TAs is to help with answering any questions they're able to that come up in the chat during the workshop. We'll also use breakout rooms at a couple points during the workshop, with one TA or instructor per room and 5-10 learners; these breakout sessions aren't for providing instruction (you're not expected to teach!), they're just time for introductions so learners can get to know each other a little, or small-group work sessions when everyone works on the same problem together. 
+
+**But I am still an R beginner myself. Surely, I don't know enough to TA, do I?**
+You do, I promise! TAs are not expected to be able to answer all the learner questions that come up --- if someone poses a question you don't know the answer to, just sit back and let someone else take a try. We have the workshop instructors and some other R experts on hand for tricky questions, so you're not alone. If it turns out you can't answer any questions through the whole workshop, that's still totally fine! We appreciate you being there. 
+We work hard to make this a community that's welcoming to beginners, and we find it's incredibly valuable to have workshop TAs that are just one step ahead of the learners themselves. You might find your limited R knowledge actually lets you connect with learners more effectively than the more experienced instructors can! Personal anecdotes about your own learning process as a beginner can be really helpful to folks just being exposed to R for the first time. 
+
+**What's the time commitment?**
+Ideally, we ask workshop TAs to be available for the duration of the workshop (9am-2pm) to try to answer questions that come up in the chat, but if you're only available for part of that time, still reach out! In addition to the workshop itself, we'll have one 30-min meeting with just the instructors and TAs a few days before the workshop to touch base. That's it!
+
+**Do you have advice for how to talk to my manager about getting the time to do this?**
+Depending on your normal work schedule, getting time to help with an all-day workshop can feel like a big ask. Every manager is different, but you may find it effective to frame your request in terms of how this experience will support your career and positional growth. Your engagement as an employee should be important to your supervisor, so hopefully they'll jump at the chance for you to have an enriching experience like this. And if nothing else, it's at least worth asking --- nothing ventured, nothing gained!
+
+**Okay, I might be interested. What are the next steps?**
+Woo-hoo! Send an email to me (`r params$contact_person` `r params$contact_email`) and I can answer any questions you have and, if you're ready, get you signed up to help. Thank you!
+ 
+*You're receiving this email because we think you're interested in R User Group meetings.  Want to stop receiving emails and invitations?  Let us know!  Was this forwarded to you by someone else and you'd like to receive these in the future? Sign up here:* https://redcap.chop.edu/surveys/?s=NPY49R9ARF.

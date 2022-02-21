@@ -1,0 +1,74 @@
+---
+title: "Post Workshop Email"
+output: html_document
+params:
+  contact_person: "Rose Hartman"
+  contact_email: "hartmanr1@chop.edu"
+  post_survey_link: "https://redcap.link/k1lyzn4e"
+  website_link: "https://arcus.github.io/intro-to-r-for-clinicians-chop/"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Hi all, 
+ 
+Thank you so much for attending our Intro to R for Clinical Data course yesterday!
+ 
+I know we threw a lot of information and resources at you, so here's a recap. 
+ 
+**Stay involved with us:**
+
+-	Please take our brief [post-course survey](`r params$post_survey_link`) to help us improve for future learners. We read these responses carefully and really do use the feedback to shape future offerings, so please take a moment to fill it out if you have anything to share with us about what went well or what we could do better. Thank you!
+-	[Join the CHOP R User Group](https://redcap.chop.edu/surveys/?s=NPY49R9ARF) if you haven't already – you'll be added to our mailing list for future events, plus receive an invite to our slack (which is a great place to ask coding questions as you continue along your journey to learning R). 
+-	Come to [R office hours](https://bit.ly/chopROfficeHours) to get help with your R code 
+ 
+**Workshop-specific materials:**
+
+-	[Course website](`r params$website_link`)
+- You can download all of the workshop materials from our GitHub repo: our [slides](https://github.com/arcus/intro-to-r-for-clinicians-chop/tree/master/slides), the hands-on [exercises](https://github.com/arcus/intro-to-r-for-clinicians-chop/tree/master/exercises) we did during the workshop, and corresponding [solutions](https://github.com/arcus/intro-to-r-for-clinicians-chop/tree/master/solutions). If you have any trouble access them, let us know!
+-	We recorded the workshop and will be posting it soon. Stay tuned!
+
+**Resources and suggestions for more learning:**
+
+-	[R for Data Science](https://r4ds.had.co.nz/) is an incredible (FREE!) online text that is perhaps the most popular intro to data science with R out there. Our course was designed so that you can easily pick up this book and continue learning. (en español: https://es.r4ds.hadley.nz/) 
+    *	There's a great [unofficial solutions guide](https://jrnold.github.io/r4ds-exercise-solutions/index.html) so you can check your work as you go
+    *	Also, our very own Meredith Lee has been working on a lovely companion series of brief articles to go along with the book, currently covering chapters 1-7. Find [Chapter 1 here](https://education.arcus.chop.edu/r-4-beginners-chapter-1/). If you start working through the book and find you'd like to contribute an article like this to our website, let us know! These guides are meant to be "for beginners, by beginners", so don't feel like you need to be an expert to contribute.
+- Check out this article for additional context on ["messy" and "tidy" data](https://education.arcus.chop.edu/tidyverse/)
+- Check out this article for more on [file paths](https://education.arcus.chop.edu/file-paths), a common stumbling block when trying to import data into R
+- For more on options for code chunks in R-Markdown documents, see this [RStudio tutorial](https://rmarkdown.rstudio.com/lesson-3.html) (we talked about message=FALSE and  echo=FALSE during the workshop)
+- For more on using languages other than R in your R-Markdown documents, see the section on [language engines in the R Markdown book](https://bookdown.org/yihui/rmarkdown/language-engines.html). Python, Julia, SQL, SAS, and STATA are all options!
+- For more on using colors in ggplot, check out the R Graph Gallery. There is a nice little interactive widget that shows options in real time with code of how to change colors: https://www.r-graph-gallery.com/ggplot2-color.html
+-	[RStudio Primers](https://rstudio.cloud/learn/primers) (online self-paced tutorials)
+-	[Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+    *	We talked in particular about the [import](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-import.pdf), [visualization](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf), and [transformation](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf) cheatsheets
+    * Note that you can also access cheatsheets directly in RStudio from the Help menu at the top (scroll down to "Cheatsheets" and then select the cheatsheet you wish to view)
+  
+**Opportunities to practice R:**
+
+- Check out [Tidy Tuesday](https://www.tidytuesday.com/), a weekly data visualization challenge. It's great practice to try doing the challenges yourself, and you can also learn a lot from looking at the code other people come up with. 
+- We're in the process of converting the slides from this workshop into R-Markdown files, and we'd love your help! If you're interested to learn about how you can make slide decks in R-Markdown and you like the idea of reviewing the workshop content at the same time, get in touch (`r params$contact_email`). There's no minimum time commitment --- if you just have a few minutes and you want to try it out, that's perfectly fine! 
+ 
+**Packages brought up in chat:**
+
+-	Package for reading SAS, SPSS, and STATA files: https://haven.tidyverse.org/
+- For instructions and examples on how to get data from redcap into R, see the following articles:
+  * https://education.arcus.chop.edu/redcap-r-windows/
+  * https://education.arcus.chop.edu/redcap-api/
+  * Not sure what the heck an API is? Start with [this article](https://education.arcus.chop.edu/what-is-an-api/)
+-	Package for dealing with date-time data: https://lubridate.tidyverse.org/
+- For more ways to select columns (other than just by spelling out their names, as we did in the workshop), learn about using [tidy select functions from the dplyr package](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)
+ 
+**Keyboard shortcuts:**
+
+-	Insert %>% (pipe operator) Ctrl + Shift + M (Windows) or Command + Shift + M (Mac)
+-	Insert <- (assignment operator) Alt + - (Windows) or Option + - (Mac
+-	Insert code chunk (in .rmd files) Ctrl + Alt + I (Windows) or Command + Option + I (Mac)
+- Here is [a complete list of the keyboard shortcuts in RStudio](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE); you can also access this list directly in RStudio from the Help menu at the top (scroll down to "Keyboard Shortcuts Help")
+ 
+Please feel free to reach out with any questions. We look forward to seeing you again in future offerings! 
+ 
+All the best,
+
+`r params$contact_person`, On behalf of Arcus Education and the CHOP R User Group
