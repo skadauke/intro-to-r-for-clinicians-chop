@@ -1,6 +1,6 @@
 ---
 title: "Visualize Data"
-output: html_notebook
+output: html_document
 ---
 
 ### Your Turn 5: The ggplot template and aesthetics
@@ -10,12 +10,12 @@ Run the following code chunk to import the COVID19 data.
 ```{r, warning = FALSE, message = FALSE}
 library(tidyverse)
 
-covid_testing <- read_csv("covid_testing.csv") 
+covid_testing <- read_csv("covid_testing.csv")
 ```
 
 
 
-Let's recreate the histogram of *pan_day*. 
+Let's recreate the histogram of *pan_day*.
 
 You will need to:
 
@@ -39,11 +39,11 @@ When you run this code, you will most likely have what looks like an error displ
 
   `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-This is actually just a message from R, telling you that it's a bad idea to use a default bin width. 
+This is actually just a message from R, telling you that it's a bad idea to use a default bin width.
 
 The *pan_day* variable holds the day of the pandemic (an arbitrary day in late February of 2020) on which the COVID test order was placed. What would be an appropriate binwidth for *pan_day* to see *daily* test volumes?
 
-Now fill in the blanks below to recreate the code from the previous chunk, with the *binwidth* argument passed to the *geom_histogram* function. 
+Now fill in the blanks below to recreate the code from the previous chunk, with the *binwidth* argument passed to the *geom_histogram* function.
 
 ```{r}
 ggplot(data = covid_testing) +
@@ -53,7 +53,7 @@ ggplot(data = covid_testing) +
 
 
 
-The effect of reducing the bin width (and increasing the number of bins) is that the data is now presented in much greater detail. 
+The effect of reducing the bin width (and increasing the number of bins) is that the data is now presented in much greater detail.
 
 Let's next add some color!
 
@@ -103,7 +103,7 @@ ggplot(data = covid_testing) +
 ```
 
 
-Now try to figure out how you would modify the code above so it draws a frequency polygon instead of histogram. 
+Now try to figure out how you would modify the code above so it draws a frequency polygon instead of histogram.
 
 ```{r}
 ggplot(data = covid_testing) +
@@ -135,4 +135,3 @@ ggplot(data = covid_testing) +
   geom_histogram(mapping = aes(x = pan_day)) +
   geom_freqpoly(mapping = aes(x = pan_day))
 ```
-

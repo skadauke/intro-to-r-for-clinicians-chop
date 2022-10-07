@@ -1,16 +1,16 @@
 ---
 title: "Transform Data"
-output: html_notebook
+output: html_document
 ---
 
 ```{r, warning = FALSE, message = FALSE}
 library(tidyverse)
 
-covid_testing <- read_csv("covid_testing.csv") 
+covid_testing <- read_csv("covid_testing.csv")
 ```
 
 
-Create a dplyr pipeline that: 
+Create a dplyr pipeline that:
 
 1. Starts with the *covid_testing* data frame, then
 
@@ -19,16 +19,16 @@ Create a dplyr pipeline that:
 3. Selects the column with the received-to-verified turnaround time (`rec_ver_tat`) as well as the column with the day from start of the pandemic (`pan_day`)
 
 ```{r}
-covid_testing %>% 
-  filter(clinic_name == "picu") %>% 
-  select(rec_ver_tat, pan_day) 
+covid_testing %>%
+  filter(clinic_name == "picu") %>%
+  select(rec_ver_tat, pan_day)
 ```
 
 
 
 
 
-Add a column named "total_tat" to *covid_testing* that contains the total turnaround time (i.e. the sum of `col_rec_tat` and `rec_ver_tat`) for each test. 
+Add a column named "total_tat" to *covid_testing* that contains the total turnaround time (i.e. the sum of `col_rec_tat` and `rec_ver_tat`) for each test.
 
 ```{r}
 mutate(covid_testing, total_tat = col_rec_tat + rec_ver_tat)
