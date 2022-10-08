@@ -25,8 +25,6 @@ You will need to:
 
 Fill in the blanks and run the code to create the plot.
 
-(Hint: if you get stuck, take a look at the slide titled "ggplot()"!)
-
 ```{r}
 ggplot(data = covid_testing) +
   geom_histogram(mapping = aes(x = pan_day))
@@ -55,9 +53,13 @@ ggplot(data = covid_testing) +
 
 The effect of reducing the bin width (and increasing the number of bins) is that the data is now presented in much greater detail.
 
-Let's next add some color!
+Let's next add some color!  This time we'll use "fill" to map the fill color.  What you're trying to accomplish is change the interior (or "fill") color to correspond to a category (`result`).  You're going to have *two* arguments inside `aes` now.
 
-Copy and paste the previous code chunk and add an aesthetic mapping that maps the *fill* aesthetic to the *result* column. (Hint: all aesthetics must be defined *inside* the aes() function!)
+How to do that? You can put several `aes` arguments in a row, separated by a comma, like this (obviously a silly example):
+
+`aes(x = something, color = something_else, fill = some_third_thing)`
+
+Copy and paste the previous code chunk and add an aesthetic mapping that maps the *fill* aesthetic to the *result* column. (Hint: all aesthetics must be defined *inside* the `aes()` function!)
 
 ```{r}
 ggplot(data = covid_testing) +
