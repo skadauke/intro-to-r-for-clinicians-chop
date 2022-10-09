@@ -1,8 +1,6 @@
-FROM rstudio/rstudio-server-pro:latest
-
 # Set default environment variables -------------------------------------------#
 
-ENV RSP_LAUNCHER false
+ENV RSW_LAUNCHER false
 ENV RSP_TESTUSER ""
 
 ENV PW_SEED ""
@@ -18,15 +16,15 @@ RUN apt-get update --fix-missing && apt-get install -y --no-install-recommends \
         git \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-    
+
 # Install R packages ----------------------------------------------------------#
 
 RUN R -e 'install.packages("devtools", repos="https://packagemanager.rstudio.com/cran/__linux__/bionic/latest")' && \
     R -e 'install.packages("tidyverse", repos="https://packagemanager.rstudio.com/cran/__linux__/bionic/latest")' && \
     R -e 'install.packages("rmarkdown", repos="https://packagemanager.rstudio.com/cran/__linux__/bionic/latest")'
 
-COPY start_rsp_train.sh /usr/local/bin/start_rsp_train.sh
-RUN chmod +x /usr/local/bin/start_rsp_train.sh
+COPY start_rwb_train.sh /usr/local/bin/start_rwb_train.sh
+RUN chmod +x /usr/local/bin/start_rwb_train.sh
 COPY create_users_table.R /usr/local/bin/create_users_table.R
 RUN chmod +x /usr/local/bin/create_users_table.R
 

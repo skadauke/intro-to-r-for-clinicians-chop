@@ -173,7 +173,7 @@ Docker is a containerization solution that allows you to quickly deploy applicat
 
 ```bash
 sudo apt update
-sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release 
+sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
@@ -228,7 +228,7 @@ In the code below, you'll need to replace some values -- especially these:
 * applicable GH_REPO
 
 ```bash
-sudo docker pull skadauke/rsp-train
+sudo docker pull skadauke/rwb-train
 
 export RSP_LICENSE=XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX
 
@@ -237,13 +237,14 @@ sudo docker run --privileged -it \
     --restart unless-stopped \
     -p 8787:8787 -p 5559:5559 \
     -e USER_PREFIX=ruser \
-    -e GH_REPO=https://github.com/skadauke/intro-to-r-for-clinicians-chop \
-    -e R_PACKAGES=shiny,flexdashboard,plotly,DT \
+    -e GH_REPO=https://github.com/arcus/intro-to-r-for-clinicians-chop \
+    -e R_PACKAGES=shiny,flexdashboard,plotly,DT,markdown \
     -e N_USERS=100 \
-    -e PW_SEED=215 \
+    -e PW_SEED=42 \
     -e RSP_LICENSE=$RSP_LICENSE \
     -v "$PWD/server-pro/conf/":/etc/rstudio \
-    skadauke/rsp-train
+    -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro \
+    skadauke/rwb-train
 ```
 
 After the Docker container has started up, press Ctrl+A to detach the image. This will allow you to take back control of the console. The container will continue to run in the background.
