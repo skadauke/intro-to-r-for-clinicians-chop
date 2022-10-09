@@ -17,9 +17,9 @@ USER_PREFIX=train
 R_PACKAGES=
 R_PACKAGES_GH=
 
-usage () { 
+usage () {
   echo
-  echo "Usage: ./start_rsp_train.sh --pw-seed <value> --gh-repo <value> [--n-users <value>]"
+  echo "Usage: ./start_rwb_train.sh --pw-seed <value> --gh-repo <value> [--n-users <value>]"
   echo "                            [--user-prefix <value>] [--r-packages <pkg1,pkg2,pkg3,...>]"
   echo "                            [--r-packages-gh <repo1/pkg1,repo2/pkg2,...>]"
   echo
@@ -52,7 +52,7 @@ while :; do
         exit 1
       fi
       ;;
-    --n-users ) 
+    --n-users )
       if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
         N_USERS="$2"
         shift 2
@@ -82,7 +82,7 @@ while :; do
     --r-packages-gh )
       if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
         R_PACKAGES_GH="$2"
-        shift 2 
+        shift 2
       else
         # Silently accept missing argument
         shift 1
@@ -220,6 +220,6 @@ do
 
 done < $USER_FILE
 
-# Run RSP startup script
+# Run RWB startup script
 
 /usr/local/bin/startup.sh
