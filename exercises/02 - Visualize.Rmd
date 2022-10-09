@@ -192,12 +192,9 @@ ggplot(data = covid_testing) +
         axis.text = element_text(color="blue"))
 ```
 
-Now, what if we wanted to change the general "look" of of the non-data elements, like the background color and whether the grid lines are included, using a pre-defined theme? There are several of these to choose from, listed here: https://ggplot2.tidyverse.org/reference/ggtheme.html.  First, install the package "ggthemes" using install.package, and load it.  Then plot and add a theme.  We've done this work for you below, so you can experiment with it.
+Now, what if we wanted to change the general "look" of of the non-data elements, like the background color and whether the grid lines are included, using a pre-defined theme? There are several of these to choose from, listed here: https://ggplot2.tidyverse.org/reference/ggtheme.html.  
 
 ```{r}
-install.packages("ggthemes")
-library(ggthemes)
-
 ggplot(data = covid_testing) +
   geom_histogram(mapping = aes(x = pan_day, fill = result)) +
   theme_economist()
