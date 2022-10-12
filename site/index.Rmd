@@ -43,7 +43,7 @@ The entire course will be recorded and made available to CHOP R User Group membe
 
 - We will have a pre-course technology check session where you will be able to test your connection to Zoom and logging into the RStudio Server training environment. If possible, please plan to attend!
 - To help us better understand our learners, please complete the [pre-course survey](https://redcap.link/pre_r_for_clinical_data). We appreciate it!
-- You may wish to download and/or print a copy of the course slides. We will share links to these after the workshop.
+- You may wish to download and/or print a copy of the course slides. These can be found at <https://joy-payton-chop.quarto.pub/intro-r-workshop/>.
 - Install [R](https://cloud.r-project.org/) and [RStudio Desktop](https://rstudio.com/products/rstudio/download/) on your computer. We made video with step by step instructions for installing these on macOS ([here](https://www.youtube.com/watch?v=GM88tYlEy_g)) or Windows ([here](https://www.youtube.com/watch?v=JRKmZK5-6aE)).
 
 
